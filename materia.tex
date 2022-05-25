@@ -1,0 +1,1782 @@
+\begin{multicols}{2}
+    \section{Inducción}
+    \subsubsection*{Principio del Buen Orden (PBO)}
+    $$
+    A \neq \varnothing, A \subseteq \mathbb{N} \Rightarrow \exists x \in A \text{ tal que } \forall y \in A, x \leq y
+    $$
+    
+    \subsubsection*{Principio de Inducción Simple (PIS)}
+    \begin{itemize}
+        \item Primera formulación:
+        Si
+        \begin{enumerate}
+            \item $0 \in A$ (base inductiva).
+            \item Si $n \in A$ (hipótesis inductiva), entonces $n + 1 \in A$ (tesis inductiva).
+        \end{enumerate}
+        entonces $A = \mathbb{N}$.
+        \item Segunda formulación:
+        Si
+        \begin{enumerate}
+            \item $P(0)$ es verdadero
+            \item Si $P(n)$, entonces $P(n + 1)$ (cada vez que $n$ cumple $P$, $n + 1$ también la cumple)
+        \end{enumerate}
+        entonces todos los elementos de $\mathbb{N}$ cumplen la propiedad P.
+        \item Tercera formulación:
+        Si
+        \begin{enumerate}
+            \item $P(\mathbf{n_0})$ es verdadero
+            \item Si $P(n)$, entonces $P(n + 1)$ (cada vez que $n$ cumple $P$, $n + 1$ también la cumple)
+        \end{enumerate}
+        entonces todos los elementos de $\mathbb{N}$ \textbf{a partir de} $\mathbf{n_0}$ cumplen la propiedad P.
+    \end{itemize}
+    
+    \subsubsection*{Principio de Inducción por Curso de Valores (PICV)}
+    \begin{itemize}
+        \item Primera formulación:
+        Si
+        $$
+        \{0,1,\ldots,n - 1\} \subseteq A \Rightarrow n \in A
+        $$
+        entonces $A = \mathbb{N}$.
+        \item Segunda formulación:
+        Si
+        \begin{align*}
+        \forall k \in \mathbb{N}, k < n, P(k) \text{ es verdadero } \\
+        \Rightarrow P(n)
+        \text{ es verdadero}
+        \end{align*}
+        entonces $P$ es verdadero para todos los elementos de $\mathbb{N}$.
+    \end{itemize}
+    
+    \subsubsection*{Teorema 1}
+    Los 3 principios de inducción (PBO, PIS y PICV) son equivalentes.
+    
+    \subsubsection*{Conjunto definido inductivamente}
+    \begin{enumerate}
+        \item El conjunto es el menor que cumple las reglas.
+        \item Definir conjunto de elementos base.
+        \item Definir conjunto finito de reglas de construcción de nuevos elementos en base a los elementos iniciales.
+    \end{enumerate}
+    
+    \subsubsection*{Inducción estructural}
+    Si
+    \begin{enumerate}
+        \item Todos los elementos base de $A$ (conjunto definido inductivamente) cumplen la propiedad $P$
+        \item Para cada regla de construcción, si la regla se aplica sobre elementos en $A$ que cumplen la propiedad $P$, entonces los elementos producidos por la regla también cumplen la propiedad $P$
+    \end{enumerate}
+    entonces todos los elementos en $A$ cumplen la propiedad $P$.
+    
+    \section{Lógica proposicional}
+    \subsubsection*{Sintaxis}
+    Sea $P$ un conjunto de variables proposicionales. El conjunto de todas las \textbf{fórmulas} de lógica proposicional sobre $P$, denotado por $L(P)$, es el menor conjunto que cumple las siguientes reglas:
+    \begin{enumerate}
+        \item Si $p \in P$, entonces $p \in L(P)$.
+        \item Si $\alpha \in L(P)$, entonces $(\neg \alpha) \in L(P)$.
+        \item Si $\alpha, \beta \in L(P)$, entonces $(\alpha \wedge \beta ) \in L(P)$, $(\alpha \vee \beta) \in L(P)$, $(\alpha \rightarrow \beta) \in L(P)$ y $(\alpha \leftrightarrow \beta) \in L(P)$.
+    \end{enumerate}
+    
+    \subsubsection*{Semántica}
+    Una \textbf{valuación} o \textbf{asignación de verdad} para las variables proposicionales en un conjunto $P$ es una función $\sigma: P \rightarrow \{0,1\}$, donde $0 =$ falso y $1 = $ verdadero.
+    
+    \subsubsection*{Tablas de verdad}
+    \begin{multicols}{2}
+        \begin{table}[H]
+            \begin{tabular}{c|c}
+                $p$ & $\neg p$ \\ \hline
+                0   & 1        \\
+                1   & 0
+            \end{tabular}
+        \end{table}
+    
+        \begin{table}[H]
+            \begin{tabular}{cc|c}
+                $p$ & $q$ & $p \wedge q$ \\ \hline
+                0   & 0   & 0            \\
+                0   & 1   & 0            \\
+                1   & 0   & 0            \\
+                1   & 1   & 1
+            \end{tabular}
+        \end{table}
+    
+        \begin{table}[H]
+            \begin{tabular}{cc|c}
+                $p$ & $q$ & $p \vee q$ \\ \hline
+                0   & 0   & 0          \\
+                0   & 1   & 1          \\
+                1   & 0   & 1          \\
+                1   & 1   & 1
+            \end{tabular}
+        \end{table}
+    
+        \begin{table}[H]
+            \begin{tabular}{cc|c}
+                $p$ & $q$ & $p \rightarrow q$ \\ \hline
+                0   & 0   & 1                 \\
+                0   & 1   & 1                 \\
+                1   & 0   & 0                 \\
+                1   & 1   & 1
+            \end{tabular}
+        \end{table}
+    
+        \begin{table}[H]
+            \begin{tabular}{cc|c}
+                $p$ & $q$ & $p \leftrightarrow q$ \\ \hline
+                0   & 0   & 1                     \\
+                0   & 1   & 0                     \\
+                1   & 0   & 0                     \\
+                1   & 1   & 1
+            \end{tabular}
+        \end{table}
+    
+        \begin{table}[H]
+            \begin{tabular}{cc|c}
+                $p$ & $q$ & XOR \\ \hline
+                0   & 0   & 0   \\
+                0   & 1   & 1   \\
+                1   & 0   & 1   \\
+                1   & 1   & 0
+            \end{tabular}
+        \end{table}
+    \end{multicols}
+    
+    \subsubsection*{Equivalencia lógica $\equiv$}
+    Dos fórmulas $\alpha, \beta \in L(P)$ son \textbf{lógicamente equivalentes} (denotado como $\alpha \equiv \beta$) si para toda valuación $\sigma$ se tiene que $\sigma(\alpha) = \sigma(\beta)$.
+    
+    \subsubsection*{Leyes de equivalencia}
+        \begin{enumerate}
+            \item Doble negación
+    
+                  $\neg(\neg \alpha) \equiv \alpha$
+    
+            \item De Morgan
+    
+                  $\neg(\alpha \wedge \beta) \equiv (\neg \alpha) \vee (\neg \beta)$
+    
+                  $\neg(\alpha \vee \beta) \equiv (\neg \alpha) \wedge (\neg \beta)$
+    
+            \item Conmutatividad
+    
+                  $\alpha \wedge \beta \equiv \beta \wedge \alpha$
+    
+                  $\alpha \vee \beta \equiv \beta \vee \alpha$
+    
+            \item Asociatividad
+    
+                  $\alpha \wedge (\beta \wedge \gamma) \equiv (\alpha \wedge \beta) \wedge \gamma$
+    
+                  $\alpha \vee (\beta \vee \gamma) \equiv (\alpha \vee \beta) \vee \gamma$
+    
+            \item Distributividad
+    
+                  $\alpha \wedge (\beta \vee \gamma) \equiv (\alpha \wedge \beta) \vee (\alpha \wedge \gamma)$
+    
+                  $\alpha \vee (\beta \wedge \gamma) \equiv (\alpha \vee \beta) \wedge (\alpha \vee \gamma)$
+    
+            \item Idempotencia
+    
+                  $\alpha \wedge \alpha \equiv \alpha$
+                  \vspace{-4px}
+    
+                  $\alpha \vee \alpha \equiv \alpha$
+    
+            \item Absorción
+    
+                  $\alpha \wedge (\alpha \vee \beta) \equiv \alpha$
+    
+                  $\alpha \vee (\alpha \wedge \beta) \equiv \alpha$
+    
+            \item Implicancia
+    
+                  $\alpha \rightarrow \beta \equiv (\neg \alpha) \vee \beta$
+    
+            \item Doble implicancia
+    
+                  $\alpha \leftrightarrow \beta \equiv (\alpha \rightarrow \beta) \wedge (\beta \rightarrow \alpha)$
+        \end{enumerate}
+    
+    \subsubsection*{Operadores generalizados}
+    \begin{align*}
+        \bigwedge_{i=1}^{n} \alpha_i & = \alpha_1 \wedge \alpha_2 \wedge \ldots \wedge \alpha_n \\
+        \bigvee_{i=1}^{n} \alpha_i   & = \alpha_1 \vee \alpha_2 \vee \ldots \vee \alpha_n
+    \end{align*}
+    
+    \subsubsection*{Teorema 2}
+    Podemos representar cualquier tabla de verdad con una fórmula. Ademas, podemos representar cualquier tabla de verdad con una fórmula que sólo usa $\neg$, $\wedge$ y $\vee$.
+    
+    \subsubsection*{Conectivos funcionalmente completos}
+    Un conjunto de conectivos se dice así si toda fórmula en $L(P)$ es lógicamente equivalente a una fórmula que sólo usa esos conectivos. Ejemplos:
+    \begin{multicols}{2}
+    \begin{itemize}
+        \item $\{\neg, \wedge, \vee\}$
+        \item $\{\neg, \wedge\}$
+        \item $\{\neg, \vee\}$
+        \item $\{\neg, \rightarrow\}$
+    \end{itemize}
+    \end{multicols}
+    
+    \subsubsection*{Satisfacibilidad}
+    Una fórmula $\alpha$ es \textbf{satisfacible} si existe una valuación $\sigma$ tal que $\sigma(\alpha) = 1$.
+    
+    \subsubsection*{Contradicción}
+    Una fórmula $\alpha$ es una \textbf{contradicción} si no es satisfacible; es decir, para toda valuación $\sigma$ se tiene que $\sigma(\alpha) = 0$.
+    
+    \subsubsection*{Tautología}
+    Una fórmula $\alpha$ es una \textbf{tautología} si para toda valuación $\sigma$ se tiene que $\sigma(\alpha) = 1$.
+    
+    \subsubsection*{Teorema 3}
+    Dos fórmulas $\alpha, \beta \in L(P)$ son \textbf{lógicamente equivalentes} si $\alpha \leftrightarrow \beta$ es una \textbf{tautología}.
+    
+    \subsubsection*{Forma Normal Disyuntiva (DNF)}
+    Una fórmula $\alpha$ está en DNF si es una disyunción de conjunciones de literales (variable proposicional o su negación); osea, si es de la forma
+    $$
+        B_1 \vee B_2 \vee \ldots \vee B_k
+    $$
+    donde cada $B_i$ es una conjunción de literales, $B_i = (l_{i1} \wedge \ldots \wedge l_{ik_i})$.
+    
+    \subsubsection*{Forma Normal Conjuntiva (CNF)}
+    Una fórmula $\alpha$ está en CNF si es una conjunción de disyunciones de literales; osea, si es de la forma
+    $$
+        C_1 \wedge C_2 \wedge \ldots \wedge C_k
+    $$
+    donde cada $C_i$ es una disyunción de literales, $C_i = (l_{i1} \vee \ldots \vee l_{ik_i})$.
+    
+    \begin{itemize}
+        \item Una disyunción de literales se llama \textbf{cláusula}.
+    \end{itemize}
+    
+    \subsubsection*{Teorema 4}
+    Toda fórmula es equivalente a una fórmula en DNF.
+    
+    \subsubsection*{Teorema 5}
+    Toda fórmula es equivalente a una fórmula en CNF.
+    
+    \subsubsection*{Propiedad formas normales}
+    Toda fórmula $\alpha \in L(P)$ en DNF con a lo más $n$ disyunciones es lógicamente equivalente a una fórmula $\beta$ en CNF ($\alpha \equiv \beta$).
+    
+    \subsubsection*{Consecuencia lógica $\models$}
+    Una fórmula $\alpha$ es consecuencia lógica de $\Sigma$ si para cada valuación $\sigma$ tal que $\sigma(\Sigma) = 1$, se tiene que $\sigma(\alpha) =  1$. Se denota como $\Sigma \models \alpha$.
+    
+    \subsubsection*{Consecuencias lógicas clásicas}
+        \begin{itemize}
+            \item Modus ponens
+    
+                  $\{p, p \rightarrow q\} \models q$
+    
+            \item Modus tollens
+    
+                  $\{\neg q, p \rightarrow q\} \models \neg p$
+    
+            \item Demostración por partes
+    
+                  $\{p \vee q \vee r, p \rightarrow s, q \rightarrow s, r \rightarrow s\} \models s$
+    
+            \item Resolución
+    
+                  $\{p \vee q, \neg q \vee r\} \models p \vee r$
+        \end{itemize}
+    
+    \subsubsection*{Conjunto satisfacible}
+    Un conjunto de fórmulas $\Sigma$ es \textbf{satisfacible} si existe una valuación $\sigma$ tal que $\sigma(\Sigma) = 1$. En caso contrario, $\Sigma$ es \textbf{inconsistente}.
+    
+    \subsubsection*{Teorema 6}
+    $\Sigma \models \alpha$ si y sólo si $\Sigma \cup \{\neg \alpha\}$ es inconsistente.
+    
+    \subsubsection*{Teorema 7}
+    Un conjunto de fórmulas $\Sigma$ es inconsistente si y sólo si $\Sigma \models \square$, con $\square$ una cláusula vacía.
+    
+    \subsubsection*{Equivalencia lógica para conjuntos}
+    Dos conjuntos de fórmulas $\Sigma_1$ y $\Sigma_2$ son \textbf{lógicamente equivalentes} ($\Sigma_1 \equiv \Sigma_2$) si para toda valuación $\sigma$ se tiene que $\sigma(\Sigma_1) = \sigma(\Sigma_2)$. También diremos que $\Sigma$ es lógicamente equivalente a una fórmula $\alpha$ si $\Sigma \equiv {\alpha}$.
+    
+    \subsubsection*{Conjuntos y conjunción}
+    Todo conjunto de fórmulas $\Sigma$ es equivalente a la conjunción de sus fórmulas.
+    $$
+        \Sigma \equiv \bigwedge_{\alpha \in \Sigma} \alpha
+    $$
+    
+    \subsubsection*{Teorema 8}
+    Todo conjunto de fórmulas $\Sigma$ es equivalente a un conjunto de cláusulas.
+    
+    \subsubsection*{Resolución para consecuencia lógica}
+    Para resolver el problema de consecuencia lógica (es decir, determinar si $\Sigma \models \alpha$) tenemos que determinar si un conjunto de cláusulas $\Sigma'$ construido desde $\Sigma \cup \{\neg \alpha\}$ es tal que $\Sigma' \models \square$.
+    
+    \subsubsection*{Resolución proposicional}
+    \begin{multicols}{2}
+    Regla de resolución \p
+    
+                  \begin{tabular}{c}
+                      $C_1 \vee l \vee C_2$            \\
+                      $C_3 \vee \overline{l} \vee C_2$ \\ \hline
+                      $C_1 \vee C_2 \vee C_3 \vee C_4$
+                  \end{tabular}
+    
+    Regla de factorización \p
+    
+                  \begin{tabular}{c}
+                      $C_1 \vee l \vee C_2 \vee l \vee C_3$ \\ \hline
+                      $C_1 \vee l \vee C_2 \vee C_3$
+                  \end{tabular}
+    \end{multicols}
+    Dado un conjunto $\Sigma$ de cláusulas, una \textbf{demostración por resolución} de que $\Sigma$ es inconsistente es una secuencia de cláusulas $C_1,\ldots,C_n$ tal que $C_n = \square$ y para cada $i = 1\ldots n$ se tiene que
+    
+              \begin{itemize}
+                  \item $C_i \in \Sigma$ o
+                  \item $C_i$ se obtiene de dos cláusulas anteriores en la secuencia usando la regla de resolución, o
+                  \item $C_i$ se obtiene de una cláusula anterior en la secuencia usando la regla de factorización.
+              \end{itemize}
+    
+              Si existe tal demostración, escribimos $\Sigma \vdash \square$.
+    
+    \subsubsection*{Teorema 8}
+    Dado un conjunto de cláusulas $\Sigma$, se tiene que: \p
+        
+    \textbf{Correctitud:} Si $\Sigma \vdash \square$, entonces $\Sigma \models \square$ ($\Sigma$ es inconsistente).
+    
+    \textbf{Completitud:} Si $\Sigma \models \square$, entonces $\Sigma \vdash \square$.
+    \begin{itemize}
+        \item \textbf{Corolario 1:} Si $\Sigma$ es un conjunto de cláusulas, entonces $\Sigma \models \square$ si y sólo si $\Sigma \vdash \square$. Dicho de otra manera, un conjunto de cláusulas $\Sigma$ es inconsistente si y sólo si existe una demostración por resolución de que es inconsistente.
+        \item \textbf{Corolario 2:} Dados un conjunto de fórmulas $\Sigma$ y una fórmula $\alpha$ cualesquiera,
+        $$
+        \Sigma \models \alpha \text{ si y sólo si } \Sigma' \vdash \square
+        $$
+        donde $\Sigma'$ es un conjunto de cláusulas tal que $\Sigma \cup \{\neg \alpha\} \equiv \Sigma'$.
+    \end{itemize}
+    
+    \section{Lógica de predicados}
+    \subsubsection*{Predicado}
+    Un predicado $n$-ario $P(x_1,\ldots,x_n)$ es una afirmación con $n$ variables, cuyo valor de verdad depende de los objetos en el cual es evaluado.
+    \begin{itemize}
+        \item $P$ es el \textbf{símbolo} del predicado.
+        \item Todos los predicados están restringidos a un \textbf{dominio} de evaluación.
+        \item Para un predicado $P(x_1,\ldots,x_n)$ diremos que $x_1,\ldots,x_n$ son \textbf{variables libres} de $P$.
+        \item Un predicado \textbf{0-ario} es un predicado sin variables y tiene valor de verdadero o falso sin importar la valuación.
+    \end{itemize}
+    
+    \subsubsection*{Cuantificador universal $\forall$}
+    Sea $P(x, y_1, \ldots, y_n)$ un predicado compuesto con dominio $D$. Definimos el cuantificador universal:
+        $$
+        P'(y_1, \ldots, y_n) = \forall x(P(x, y_1, \ldots, y_n))
+        $$
+        donde $x$ es la variable cuantificada y $y_1, \ldots, y_n$ son las variables libres. Para $b_1, \ldots, b_n$ en $D$, definimos la valuación:
+        $$
+        P'(b_1, \ldots, b_n) = 1
+        $$
+        si \textbf{para todo} $a$ en $D$ se tiene que $P(a, b_1, \ldots, b_n) = 1$, y 0 en otro caso.
+    
+    \subsubsection*{Cuantificador existencial $\exists$}
+    Sea $P(x, y_1, \ldots, y_n)$ un predicado compuesto con dominio $D$. Definimos el cuantificador existencial:
+        $$
+        P'(y_1, \ldots, y_n) = \exists x(P(x, y_1, \ldots, y_n))
+        $$
+        donde $x$ es la variable cuantificada y $y_1, \ldots, y_n$ son las variables libres. Para $b_1, \ldots, b_n$ en $D$, definimos la valuación:
+        $$
+        P'(b_1, \ldots, b_n) = 1
+        $$
+        si \textbf{existe} $a$ en $D$ tal que $P(a, b_1, \ldots, b_n) = 1$, y 0 en otro caso.
+    
+    \subsubsection*{Interpretaciones $\mathcal{I}$}
+    Una interpretación $\mathcal{I}$ para $P_1, \ldots, P_n$ está compuesta de:
+        \begin{itemize}
+            \item un dominio $D$ que denotaremos $\mathcal{I}(dom)$ y
+            \item un predicado $P_i^D$ que denotaremos por $\mathcal{I}(P_i)$ para cada símbolo $P_i$.
+        \end{itemize}
+    
+    \subsubsection*{Satisfacibilidad para interpretaciones}
+        $$
+        \mathcal{I} \models \alpha(a_1,\ldots,a_n)
+        $$
+        si $\alpha(a_1,\ldots,a_n)$ es verdadero al interpretar cada símbolo en $\alpha$ según $\mathcal{I}$. Si $\mathcal{I}$ \textbf{no satisface} $\alpha$ sobre $a_1,\ldots,a_n$ en $\mathcal{I}(dom)$ lo denotamos como $\mathcal{I} \nvDash \alpha(a_1,\ldots,a_n)$.
+    
+    \subsubsection*{Equivalencia lógica para predicados}
+    Sean $\alpha(x_1, \ldots, x_n)$ y $\beta(x_1,\ldots,x_n)$ dos fórmulas en lógica de predicados. Decimos que $\alpha$ y $\beta$ son \textbf{lógicamente equivalentes}:
+    $$
+    \alpha \equiv \beta
+    $$
+    si para toda interpretación $\mathcal{I}$ y para todo $a_1,\ldots,a_n$ en $\mathcal{I}(dom)$ se cumple:
+    $$
+    \mathcal{I} \models \alpha(a_1,\ldots,a_n) \text{ si y sólo si } \mathcal{I} \models \beta(a_1,\ldots,a_n)
+    $$
+    \begin{itemize}
+        \item \textbf{Caso especial:} Si $\alpha$ y $\beta$ son oraciones (no tienen variables libres), entonces:
+        $$
+        \mathcal{I} \models \alpha \text{ si y sólo si } \mathcal{I} \models \beta
+        $$
+    \end{itemize}
+    
+    \subsubsection*{Teorema 9}
+    Sea $\alpha(x)$, $\beta(x)$ fórmulas con $x$ su variable libre, entonces:
+    \begin{align*}
+        \neg \forall x(\alpha(x)) &\equiv \exists x(\neg \alpha(x))\\
+        \neg \exists x(\alpha(x)) &\equiv \forall x(\neg \alpha(x))\\
+        \forall x(\alpha(x) \wedge \beta(x)) &\equiv \forall x(\alpha(x)) \wedge \forall x (\beta(x))\\
+        \exists x(\alpha(x) \vee \beta(x)) &\equiv \exists x(\alpha(x)) \vee \exists x(\beta(x))    
+    \end{align*}
+    
+    \subsubsection*{Consecuencia lógica para predicados}
+    Una fórmula $\alpha$ es consecuencia lógica de un conjunto de fórmulas $\Sigma$:
+        $$
+        \Sigma \models \alpha
+        $$
+        si para toda interpretación $\mathcal{I}$ y $a_1,\ldots,a_n$ en $\mathcal{I}(dom)$ se cumple que:
+        $$
+        \text{si } \mathcal{I} \models \Sigma(a_1,\ldots, a_n) \text{ entonces } \mathcal{I} \models \alpha(a_1,\ldots,a_n)
+        $$
+    
+    \subsubsection*{Reglas de inferencia para predicados}   
+    
+    \begin{itemize}
+    \item Especificación universal
+    \vspace{5px}
+    
+        \begin{tabular}{c}
+            $\forall x (\alpha(x))$ \\ \hline
+            $\alpha(a)$ para cualquier $a$
+        \end{tabular}
+    
+    \item Generalización universal
+    \vspace{5px}
+    
+    
+    \begin{tabular}{c}
+        $\alpha(a)$ para un $a$ arbitrario \\ \hline
+        $\forall x (\alpha(x))$
+    \end{tabular}
+    
+    \item Especificación existencial
+    \vspace{5px}
+    
+    
+    \begin{tabular}{c}
+        $\exists x (\alpha(x))$ \\ \hline
+        $\alpha(a)$ para algún $a$ (nuevo)
+    \end{tabular}
+    
+    \item Generalización existencial
+    \vspace{5px}
+    
+    \begin{tabular}{c}
+        $\alpha(a)$ para algún $a$ \\ \hline
+        $\exists x (\alpha(x))$
+    \end{tabular}
+    \end{itemize}
+    
+    \section{Demostraciones}
+    \subsubsection*{Método directo}
+    Por demostrar: $\forall x(P(x) \rightarrow Q(x))$. \p
+    
+    Suponemos que $P(n)$ es verdadero para un $n$ arbitrario y demostramos que $Q(n)$ también es verdadero.
+    
+    \subsubsection*{Contrapositivo}
+    Por demostrar: $\forall x(P(x) \rightarrow Q(x))$. \p
+    
+    Suponemos que $Q(n)$ es falso para un $n$ arbitrario y demostramos que $P(n)$ también es falso.
+    
+    \subsubsection*{Contradicción}
+    Por demostrar: $\forall x(P(x) \rightarrow Q(x))$. \p
+    
+    Suponemos que existe un $n$ tal que $P(n)$ es verdadero y $Q(n)$ es falso e inferimos una contradicción.
+    
+    \subsubsection*{Por casos}
+    Para cada subdominio $C_1,\ldots,C_n$ demostramos que:
+    $$
+    \forall x(P(x) \rightarrow Q(x))
+    $$
+    \begin{itemize}
+        \item Aquí, dividimos el dominio de la interpretación $\mathcal{I}$ con que trabajamos en una cantidad finita de casos $C_1,\ldots,C_n$, tal que:
+        $$
+        \mathcal{I}(dom) = \bigcup_{i=1}^{n}C_i
+        $$
+    \end{itemize}
+    
+    \subsubsection*{Doble implicación}
+    Por demostrar: $\forall x (P(x) \leftrightarrow Q(x))$. \p
+    
+    Aquí, se deben demostrar ambas direcciones por separado. En términos formales:
+    $$
+    \forall x(P(x) \rightarrow Q(x)) \wedge \forall x(Q(x) \rightarrow P(x))
+    $$
+    
+    \subsubsection*{Contra-ejemplo}
+    Por demostrar: $\neg (\forall x(P(x)))$. \p
+    
+    Aquí, hay que encontrar un elemento $n$ (cualquiera) tal que $P(n)$ es falso.
+    
+    \subsubsection*{Existencial}
+    Por demostrar: $\exists x (P(x))$.\p
+    
+    Aquí, debemos demostrar que existe un elemento $n$ tal que $P(n)$ es verdadero (nótese que NO es estrictamente necesario mostrar $n$ explícitamente).
+    
+    \section{Teoría de conjuntos}
+    \subsubsection*{Conjunto}
+    Es una colección \textit{bien definida} de objetos. Estos objetos se llaman \textbf{elementos} del conjunto, y diremos que \textbf{pertenecen} a él.
+    
+    \subsubsection*{Subconjunto}
+    Sean $A$ y $B$ conjuntos. Diremos que $A$ es \textbf{subconjunto} de $B$, denotado por $A \subseteq B$, si
+    $$
+    \forall x (x \in A \rightarrow x \in B)
+    $$
+    En otras palabras, $A$ es subconjunto de $B$ si cada elemento de $A$ está tambien en $B$.
+    
+    \subsubsection*{Igualdad de conjuntos}
+    Dos conjuntos $A$ y $B$ son iguales si y sólo si $A \subseteq B$ y $B \subseteq A$. Otra definición equivalente es
+    $$
+    \forall A \forall B \quad A = B \leftrightarrow \forall x (x \in A \leftrightarrow x \in B)
+    $$
+    \begin{itemize}
+        \item Este es el \textbf{axioma de extensión}.
+        \item \textbf{Observación:} Los conjuntos no pueden tener elementos repetidos. $\{x,x\} = \{x\}$.
+    \end{itemize}
+    
+    \subsubsection*{Subconjunto propio}
+    Diremos que $A$ es un subconjunto propio de $B$, detonado por $A \subsetneq B$, si
+    $$
+    A \subseteq B \wedge A \neq B \text{, o alternativamente, } A \subseteq B \wedge B \nsubseteq A
+    $$
+    
+    \begin{itemize}
+        \item \textbf{Corolario:} $B \nsubseteq A$ si y sólo si $\exists x \in B$ tal que $x \notin A$.
+    \end{itemize}
+    
+    \subsubsection*{Axioma del conjunto vacío}
+    $\exists X$ tal que $\forall x, x \notin X$. Lo denotaremos por $\varnothing$ o \{\}.
+    
+    \subsubsection*{Teorema 10}
+    Para todo conjunto $A$ se tiene que $\varnothing \subseteq A$.
+    
+    \subsubsection*{Teorema 11}
+    Existe un único conjunto vacío.
+    
+    \subsubsection*{Formas de definir un conjunto}
+    \begin{itemize}
+        \item Por extensión (listando sus elementos): 
+        $$\mathbb{Z}_5 = \{0,1,2,3,4\}$$
+        \item Por comprensión: 
+        $$\mathbb{Z}_5 = \{x \,|\, x \in \mathbb{N} \wedge x < 5\}$$
+    \end{itemize}
+    
+    \subsubsection*{Axioma de abstracción}
+    Si $\alpha$ es una propiedad sobre objetos, entonces $A = \{x \,|\, \alpha(x)\}$ es un conjunto.
+    
+    \subsubsection*{Axioma de separación}
+    Si $\alpha$ es una propiedad y $C$ es un conjunto ``sano", entonces $A = \{x \,|\, x \in C \wedge \alpha(x)\}$ es un conjunto.
+    \begin{itemize}
+        \item Un \textbf{conjunto sano} es uno el cual no fue creado usando el axioma de abstracción.
+    \end{itemize}
+    
+    \subsubsection*{Operaciones}
+    \begin{itemize}
+        \item Unión: $A \cup B = \{x \,|\, x \in A \vee x \in B\}$
+        \item Intersección: $A \cap B = \{x \,|\, x \in A \wedge x \in B\}$
+        \item Diferencia: $A \backslash B = \{x \,|\, x \in A \wedge x \notin B\}$
+        \item Conjunto potencia: $\mathcal{P}(A) = \{X \,|\, X \subseteq A\}$ \p
+        
+        Algunas observaciones:
+        \begin{multicols}{2}
+            \begin{itemize}
+                \item $\varnothing \in \mathcal{P}(A)$
+                \item $A \in \mathcal{P(A)}$
+                \item $A \subseteq A \cup B$
+                \item $A \cap B \subseteq A$
+            \end{itemize}
+        \end{multicols}
+    \end{itemize}
+    
+    \subsubsection*{Complemento}
+    Sea $A \subseteq \mathcal{U}$ (siendo $\mathcal{U}$ un conjunto universal fijo) un conjunto cualquiera. El complemento de $A$ (relativo a $\mathcal{U}$) es el conjunto
+        $$
+        A^c = \mathcal{U} \backslash A = \{x \,|\, x \in \mathcal{U} \wedge x \notin A\}
+        $$
+    
+    \subsubsection*{Teorema 12}
+    Si $A$, $B$ y $C$ son conjuntos cualquiera (subconjuntos de $\mathcal{U}$), entonces se cumplen las siguientes leyes:    
+    \begin{itemize}
+        \item Asociatividad
+        
+        $A \cup (B \cup C) = (A \cup B) \cup C$
+    
+        $A \cap (B \cap C) = (A \cap B) \cap C$
+    
+        \item Conmutatividad
+        
+        $A \cup B = B \cup A$
+    
+        $A \cap B = B \cap A$
+    
+        \item Idempotencia
+        
+        $A \cup A = A$
+    
+        $A \cap A = A$
+    
+        \item Absorción
+        
+        $A \cup (A \cap B) = A$
+    
+        $A \cap (A \cup B) = A$
+    
+        \item Elemento neutro
+        
+        $A \cup \varnothing = A$
+    
+        $A \cap \mathcal{U} = A$
+    
+        \item Distributividad
+        
+        $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+    
+        $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+    
+        \item Leyes de De Morgan
+        
+        $(A \cup B)^c = A^c \cap B^c$
+    
+        $(A \cap B)^c = A^c \cup B^c$
+    
+        \item Elemento inverso
+        
+        $A \cup A^c = \mathcal{U}$
+    
+        $A \cap A^c = \varnothing$
+    
+        \item Dominación
+        
+        $A \cup \mathcal{U} = \mathcal{U}$
+    
+        $A \cap \varnothing = \varnothing$
+        
+    \end{itemize}
+    
+    \subsubsection*{Unión generalizada}
+    Siendo $\mathcal{S}$ un conjunto de conjuntos, la unión generalizada representa a la unión de todos los conjuntos componentes de $\mathcal{S}$; es decir, contiene a todos los elementos que pertenecen a algún conjunto de $\mathcal{S}$.
+    $$
+    \bigcup \mathcal{S} = \{x \,|\, \exists A \in \mathcal{S} \text{ tal que } x \in A\} = \bigcup_{A \in \mathcal{S}} A
+    $$
+    
+    \subsubsection*{Intersección generalizada}
+    Siendo $\mathcal{S}$ un conjunto de conjuntos, la intersección generalizada representa a la intersección de todos los conjuntos componentes de $\mathcal{S}$; es decir, contiene a todos los elementos que pertenecen a todos los conjuntos de $\mathcal{S}$.
+    $$
+    \bigcap \mathcal{S} = \{x \,|\, \forall A \in \mathcal{S} \text{ se cumple que } x \in A\} = \bigcap_{A \in \mathcal{S}} A
+    $$
+    
+    \section{Relaciones}
+    \subsubsection*{Par ordenado}
+    Sean $a,b \in \mathcal{U}$ (donde $\mathcal{U}$ es un conjunto universal). Definimos el par ordenado $(a,b)$ como
+    $$
+    (a,b) = \{\{a\}, \{a,b\}\}
+    $$
+    \begin{itemize}
+        \item Propiedad: $(a,b) = (c,d)$ si y sólo si $a = c \wedge b = d$
+    \end{itemize}
+    
+    \subsubsection*{$n$-tupla}
+    Sean $a_1, \ldots,a_n \in \mathcal{U}$. Definimos una $n$-tupla como:
+    $$
+    (a_1, \ldots, a_n) = ((a_1, \ldots, a_{n-1}), a_n)
+    $$
+    
+    \subsubsection*{Producto cartesiano}
+    Dados dos conjuntos $A$ y $B$, definimos el producto cartesiano entre $A$ y $B$ como
+    $$
+    A \times B = \{(a,b) \,|\, a \in A \wedge b \in B\}
+    $$
+    Se puede extender esta noción a más conjuntos. Dados conjuntos $A_1, \ldots, A_n$, definimos el producto cartesiano entre los $A_i$ como
+    $$
+    A_1 \times \ldots \times A_n = \{(a_1, \ldots, a_n) \,|\, a_1 \in A_1 \wedge \ldots \wedge a_n \in A_n\}
+    $$
+    
+    \subsubsection*{Relación}
+    Dados conjuntos $A_1, \ldots, A_n$, diremos que $R$ es una relación sobre tales conjuntos si $R \subseteq A_1 \times \ldots \times A_n$.
+            \begin{itemize}
+                \item La \textbf{aridad} de una relación $R$ es el tamaño de las tuplas que la componen. Así, diremos que $R$ es una relación $n$-aria.
+            \end{itemize}
+    
+    \subsubsection*{Relación binaria}
+    Dados conjuntos $A$ y $B$, diremos que $R$ es una relación binaria de $A$ en $B$ si $R \subseteq A \times B$. 
+    \begin{itemize}
+        \item Podemos tener una relación sobre un solo conjunto, es decir, dado un conjunto $A$, diremos que $R$ es una relación binaria sobre $A$ si $R \subseteq A \times A = A^2$.
+        \item Cuando tengamos productos cartesianos entre un mismo conjunto, usaremos una notación de \textit{potencia}:
+        $$
+        A \times \overset{(n-2 veces)}{\cdots} \times = A^n
+        $$
+    \end{itemize}
+    
+    \subsubsection*{Relación binaria: Divide a $|$}
+    Esta relación sobre los naturales sin el 0, es una tal que $a$ está relacionado con $b$ si y sólo si $b$ es múltiplo de a:
+    $$
+    a\,|\,b \text{ si y sólo si } \exists k \in \mathbb{N} \text{ tal que } b = ka
+    $$
+    
+    \subsubsection*{Relación binaria: Equivalencia módulo $n$ $\equiv_n$}
+    Esta relación sobre los naturales, es una tal que $a$ está relacionado con $b$ si y sólo si $|a - b|$ es múltiplo de $n$:
+    $$
+    a \equiv_n b \text{ si y sólo si } \exists k \in \mathbb{N} \text{ tal que } |a - b| = kn
+    $$
+    
+    \subsubsection*{Propiedades de las relaciones}
+    Una relación es
+    \begin{itemize}
+        \item \textbf{Refleja} si para cada $a \in A$ se tiene que $R(a,a)$.
+        \item \textbf{Irrefleja} si para cada $a \in A$ \textit{no} se tiene que $R(a,a)$. 
+        \item \textbf{Simétrica} si para cada $a,b \in A$, si $R(a,b)$ entonces $R(b,a)$.
+        \item \textbf{Asimétrica} si para cada $a,b \in A$, si $R(a,b)$ entonces \textit{no es cierto} que $R(b,a)$.
+        \item \textbf{Antisimétrica} si para cada $a,b \in A$, si $R(a,b)$ y $R(b,a)$, entonces $a = b$.
+        \item \textbf{Transitiva} si para cada $a,b,c \in A$, si $R(a,b)$ y $R(b,c)$, entonces $R(a, c)$.
+        \item \textbf{Conexa} si para cada $a,b \in A$, se tiene que $R(a,b)$ o $R(b,a)$. \p
+        
+        En lógica de predicados (para demostrar):
+    \end{itemize}
+    
+    \begin{itemize}
+        \item Refleja: $\forall x(R(x, x))$
+        \item Irrefleja: $\forall x(\neg R(x,x))$
+        \item Simétrica: $\forall x \forall y (R(x,y) \rightarrow R(y,x))$
+        \item Asimétrica: $\forall x \forall y (R(x,y) \rightarrow \neg R(y,x))$
+        \item Antisimétrica: $\forall x \forall y ((R(x,y) \wedge R(y,x)) \rightarrow x = y)$
+        \item Transitiva: $\forall x \forall y \forall z ((R(x,y) \wedge R(y,z)) \rightarrow R(x, z))$
+        \item Conexa: $\forall x \forall y (R(a,b) \vee R(b,a))$
+    \end{itemize}
+    
+    \subsubsection*{Relaciones de equivalencia}
+    Una relación $R$ sobre $A$ es una relación de equivalencia si es refleja, simétrica y transitiva.
+    
+    \subsubsection*{Clase de equivalencia}
+    Sea $\thicksim$ una relación de equivalencia sobre un conjunto $A$ y un elemento $x \in A$. La clase de equivalencia de $x$ bajo $\thicksim$ es el conjunto
+    $$
+    [x]_\thicksim = \{y \in A \,|\, x \thicksim y\}
+    $$
+    
+    \subsubsection*{Teorema 13}
+    Sea $\thicksim$ una relación de equivalencia sobre un conjunto $A$. Entonces:
+    \begin{enumerate}
+        \item $\forall x \in A, x \in [x]$
+        \item $x \thicksim y$ si y sólo si $[x] = [y]$
+        \item Si $[x] \neq [y]$ entonces $[x] \cap [y] = \varnothing$
+    \end{enumerate}
+    
+    \subsubsection*{Conjunto cuociente}
+    Sea $\thicksim$ una relación de equivalencia sobre un conjunto $A$. El conjunto cuociente de $A$ con respecto a $\thicksim$ es el conjunto de todas las clases de equivalencia de $\thicksim$:
+    $$
+    A/\thicksim = \{[x] \,|\, x \in A\}
+    $$
+    
+    \subsubsection*{Índice}
+    Es la cantidad de clases de equivalencia que induce. Es decir, la cantidad de elementos de su conjunto cuociente.
+    
+    \subsubsection*{Partición}
+    Sea $A$ un conjunto cualquiera, y $S$ una colección de subconjuntos de $A$ ($S \subseteq \mathcal{P}(A)$). Diremos que $S$ es una partición de $A$ si cumple que:
+    \begin{enumerate}
+        \item $\forall X \in S, X \neq \varnothing$
+        \item $\bigcup S = A$
+        \item $\forall X, Y \in S$ si $X \neq Y$ entonces $X \cap Y = \varnothing$
+    \end{enumerate}
+    
+    \subsubsection*{Teorema 14}
+    Si $\thicksim$ es una relación de equivalencia sobre un conjunto $A$, entonces $A/\thicksim$ es una partición de $A$.
+    
+    \subsubsection*{Relación $\downarrow$} 
+    Esta relación sobre $\mathbb{N} \times \mathbb{N}$ se define como:
+    $$
+    (m,n) \downarrow (r,s) \quad \leftrightarrow \quad m + s = n + r
+    $$
+    
+    \subsubsection*{Números enteros}
+    El conjunto de los números $\mathbb{Z}$ se define como el conjunto cuociente de $\mathbb{N}^2$ respecto a $\downarrow$:
+    $$
+    \mathbb{Z} = \mathbb{N}/\downarrow = \{[(0,0)],[(0,1)],[(1,0)], [(0,2)],[(2,0)],\ldots\}
+    $$
+    \begin{itemize}
+        \item $[(0,0)]$ será el entero 0.
+        \item $[(0,i)]$ sera el entero $i$.
+        \item $[(i,0)]$ será el entero $-i$.
+    \end{itemize}
+    \textbf{Nota:} ``$-1$'' es sólo un \textbf{nombre} para la clase de equivalencia $[(1,0)]$. El símbolo ``$-$'' no significa nada por sí solo.
+    
+    \subsubsection*{Suma sobre $\mathbb{Z}$} 
+    $[(m,n)] +_\downarrow [(r,s)] = [(m + r, n +s)]$
+    
+    \subsubsection*{Producto sobre $\mathbb{Z}$} $[(m,n)] \cdot_\downarrow [(r,s)] = [(m \cdot s + n \cdot r, m \cdot r + n \cdot s)]$
+    
+    \section{Funciones}
+    
+    \subsubsection*{Función}
+    Sea $f$ una relación binaria de $A$ en $B$; es decir, $f \subseteq A \times B$. Diremos que $f$ es una función de $A$ en $B$ si dado cualquier elemento $a \in A$, si existe un elemento $b \in B$ tal que $afb$, este es único:
+    $$
+    afb \wedge afc \rightarrow b = c
+    $$
+    Si $afb$, escribimos $b = f(a)$.
+    \begin{itemize}
+        \item $b$ es la \textbf{imagen} de $a$.
+        \item $a$ es la \textbf{preimagen} de b.
+        \item \textbf{Notación:} $f: A \rightarrow B$
+    \end{itemize}
+    
+    \subsubsection*{Función total}
+    Una función $f:A \rightarrow B$ se dice total si todo elemento en $A$ tiene imagen, es decir
+    \begin{itemize}
+        \item Para todo $a \in A$ existe $b \in B$ tal que $b = f(a)$.
+        \item Una función que no sea total se dice \textbf{parcial}.
+        \item Toda función será total a menos que se diga lo contrario.
+    \end{itemize}
+    
+    \subsubsection*{Inyectividad}
+    Una función $f:A \rightarrow B$ es inyectiva (o $1-1$) si para cada par de elementos $x,y \in A$ se tiene que $f(x) = f(y) \rightarrow x = y$. Es decir, no existen dos elementos distintos en $A$ con la misma imagen.
+    
+    \subsubsection*{Sobreyectividad}
+    Una función $f:A \rightarrow B$ es sobreyectiva (o sobre) si cada elemento $b \in B$ tiene preimagen. Es decir, para todo $b \in B$ existe un $a \in A$ tal que $b = f(a)$.
+    
+    \subsubsection*{Biyectividad}
+    Una función $f:A \rightarrow B$ es biyectiva si es inyectiva y sobreyectiva \textbf{a la vez}.
+    
+    \subsubsection*{Relación inversa}
+    Dada una relación $R$ de $A$ en $B$, una relación inversa de $R$ es una relación de $B$ en $A$ definida como
+    $$
+    R^{-1} = \{ (b,a) \in B \times A \,|\, aRb \}
+    $$
+    
+    \subsubsection*{Función invertible}
+    Dada una función $f$ de $A$ en $B$, diremos que $f$ es invertible si su relación inversa $f^{-1}$ es una relación de $B$ en $A$.
+    
+    \subsubsection*{Composición de relaciones}
+    Dadas relaciones $R$ de $A$ en $B$ y $S$ de $B$ en $C$, la composición de $R$ y $S$ es una relación de $A$ en $C$ definida como
+    $$
+    S \circ R = \{ (a,c) \in A \times C \,|\, \exists b \in B \text{ tal que } aRb \wedge bSc \}
+    $$
+    
+    \subsubsection*{Composición de funciones}
+    Dadas funciones $f$ de $A$ en $B$ y $g$ de $B$ en $C$, la composición $g \circ f$ es una función de $A$ en $C$.
+    
+    \subsubsection*{Teorema 14}
+    Si $f: A \rightarrow B$ es biyectiva, entonces la relación inversa $f^{-1}$ es una función biyectiva de $B$ en $A$.
+    \begin{itemize}
+        \item Si $f$ es biyectiva, entonces es invertible.
+    \end{itemize}
+    
+    \subsubsection*{Teorema 15}
+    Dados dos funciones $f: A \rightarrow B$ y $g: B \rightarrow C$:
+    \begin{itemize}
+        \item Si $f$ y $g$ son inyectivas, entonces $g \circ f$ también lo es.
+        \item Si $f$ y $g$ son sobreyectivas, entonces $g \circ f$ también lo es.
+    \end{itemize}
+    
+    \subsubsection*{Principio del palomar}
+    Se tienen $m$ palomas y $n$ palomares, con $m > n$. Entonces, si se reparten las $m$ palomas en los $n$ palomares, necesariamente existirá un palomar con más de una paloma.
+    
+    \subsubsection*{Principio del palomar (matemático)}
+    Si se tiene una función $f: \mathbb{N}_m \rightarrow \mathbb{N}_n$, con $m > n$, la función $f$ no puede ser inyectiva. Es decir, necesariamente existirán $x,y \in \mathbb{N}_m$ tales que $x \neq y$, pero $f(x) = f(y)$.
+    
+    \subsubsection*{Principio del palomar (sobreyectividad)}
+    Si se tiene una función $f: \mathbb{N}_m \rightarrow \mathbb{N}_n$, con $m < n$, la función $f$ no puede ser sobreyectiva.
+    
+    \subsubsection*{Conjunto equinumeroso}
+    Sean $A$ y $B$ dos conjuntos cualesquiera. Diremos que $A$ es equinumeroso con $B$ (o que $A$ tiene el mismo tamaño que $B$) si existe una función biyectiva $f: A \rightarrow B$. Lo denotamos como
+    $$
+    A \approx B
+    $$
+    Esta es una \textbf{relación de equivalencia}.
+    
+    \subsubsection*{Cardinalidad}
+    La cardinalidad de un conjunto $A$ es su clase de equivalencia bajo $\approx$:
+    $$
+    |A| = [A]_\approx
+    $$
+    
+    \subsubsection*{Conjunto finito}
+    Diremos que $A$ es un conjunto finito si $A \approx n$, para algún $n \in \mathbb{N}$. Es decir, si existe una función biyectiva $f: A \rightarrow n = \{0,\ldots, n - 1\}$.
+    \begin{itemize}
+        \item En tal caso, se tiene que $|A| = [n]_\approx$.
+        \item Por simplicidad, diremos que $|A| = n$.
+        \item También podemos decir que $A$ tiene $n$ elementos.
+    \end{itemize}
+    
+    \subsubsection*{Lema 1}
+    Sean $A$ y $B$ dos conjuntos finitos tales que $A \cap B = \varnothing$. Entonces, $|A \cup B| = |A| + |B|$.
+    
+    \subsubsection*{Teorema 16}
+    Sea $A$ un conjunto finito. Entonces, se cumple que $|P(A)| = 2^{|A|}$.
+    \begin{itemize}
+        \item Esto implica que si $A$ es un conjunto finito, entonces su cardinalidad es \textbf{estrictamente menor} que la de su conjunto potencia.
+    \end{itemize}
+    
+    \subsubsection*{Conjunto enumerable}
+    Un conjunto $A$ se dice enumerable si $|A| = |\mathbb{N}|$.
+    
+    \subsubsection*{Teorema 17 (Schröder-Bernstein)}
+    $A \approx B$ si y sólo si existen funciones inyectivas $f: A \rightarrow B$ y $g: B \rightarrow A$.
+    
+    \subsubsection*{Conjunto enumerable (alternativa)}
+    Un conjunto $A$ es enumerable si y sólo si todos sus elementos se pueden poner en una lista infinita; es decir, si existe una sucesión infinita
+    $$
+    (a_0, a_1, a_2, \ldots, a_n, a_{n+1}, \ldots)
+    $$
+    tal que \textit{todos} los elementos de $A$ aparecen en la sucesión \textit{una única vez} cada uno.
+    
+    \subsubsection*{Teorema 18 (Cantor)}
+    El intervalo real $(0,1) \subseteq \mathbb{R}$ es infinito pero no enumerable.
+    
+    \subsubsection*{Teorema 19}
+    $$
+    (0, 1) \approx \mathbb{R} \approx \mathcal{P}(\mathbb{N})
+    $$
+    
+    \subsubsection*{Relación $\preceq$ entre conjuntos}
+    Dados conjuntos $A$ y $B$, diremos que $A \preceq B$ ($A$ no es más grande que $B$), si existe una función inyectiva $f: A \rightarrow B$.
+    \begin{itemize}
+        \item $\preceq$ \textbf{no} es una relación de orden.
+        \item Si $A \preceq B$, diremos que $|A| \leq |B|$.
+    \end{itemize}
+    
+    \subsubsection*{Conjunto menos numeroso}
+    Dados conjuntos $A$ y $B$, diremos que $A \prec B$ ($A$ es menos numeroso que $B$) si $A \preceq B$ pero $A \not\approx$ B.
+    \begin{itemize}
+        \item Esta noción con funciones se define de tal forma que existe una función inyectiva $f: A \rightarrow B$, pero no existe una función biyectiva $g: A \rightarrow B$.
+        \item Si $A \prec B$, diremos que $|A| < |B|$.
+        \item Corolario: $|\mathbb{N}| < |\mathcal{P}(\mathbb{N})|$.
+    \end{itemize}
+    
+    \subsubsection*{Teorema 20 (Cantor, menos numeroso)}
+    $A$ es menos numeroso que su conjunto potencia, es decir
+    $$
+    |A| < |\mathcal{P}(A)|
+    $$
+    
+    \section{Análisis de algoritmos}
+    
+    \subsubsection*{Algoritmo}
+    Es un método para convertir un \textbf{input} en un \textbf{output}. A estos métodos les exigiremos ciertas propiedades:
+    \begin{itemize}
+        \item \textbf{Precisión:} cada instrucción debe ser planteada de forma precisa y no ambigua.
+        \item \textbf{Determinismo:} cada instrucción tiene un único comportamiento que depende sólo del input.
+        \item \textbf{Finitud:} el algoritmo está compuesto por un conjunto finito de instrucciones.
+    \end{itemize}
+    
+    \subsubsection*{Objetivos}
+    El análisis de algoritmos tiene dos objetivos:
+    \begin{itemize}
+        \item Estudiar cuándo y por qué los algoritmos son \textbf{correctos} (es decir, hacen lo que dicen que hacen).
+        \item Estimar la cantidad de \textbf{recursos} computacionales que un algoritmo necesita para su ejecución.
+    \end{itemize}
+    
+    \subsubsection*{Pseudo-código}
+    Se usa pseudo-código para escribir algoritmos:
+    \begin{itemize}
+        \item Instrucciones usuales como \textbf{if}, \textbf{while}, \textbf{return}, ...
+        \item Notaciones cómodas para arreglos, conjuntos, etc.
+    \end{itemize}
+    
+    Consideraremos que los algoritmos tienen:
+    \begin{itemize}
+        \item \textbf{Precondiciones:} representan el input del programa.
+        \item \textbf{Postcondiciones:} representan el output del programa, lo que hace el algoritmo con el input.
+    \end{itemize}
+    
+    \subsubsection*{Corrección de algoritmos}
+    Un algoritmo es
+    \begin{itemize}
+        \item \textbf{correcto}, si para todo input válido, el algoritmo se detiene y produce un output correcto.
+        \item \textbf{incorrecto}, si existe un input válido para el cual el algoritmo no se detiene o produce un output incorrecto.
+    \end{itemize}
+    
+    \subsubsection*{Algoritmos iterativos}
+    Debemos demostrar dos cosas:
+    \begin{itemize}
+        \item \textbf{Corrección parcial:} si el algoritmo se detiene, se cumplen las postcondiciones.
+        \item \textbf{Terminación:} el algoritmo se detiene.
+    \end{itemize}
+    
+    \subsubsection*{Demostración}
+    Para demostrar la corrección parcial, buscamos un \textbf{invariante} $I(k)$ para los loops:
+    \begin{itemize}
+        \item Una propiedad $I$ que sea verdadera en cada paso $k$ de la iteración.
+        \item Debe relacionar a las variables presentes en el algoritmo.
+        \item Al finalizar la ejecución, debe asegurar que las postcondiciones se cumplan.
+    \end{itemize}
+    
+    Una vez encontramos una invariante, demostramos la corrección del loop inductivamente:
+    \begin{itemize}
+        \item \textbf{Base:} las precondiciones deben implicar que $I(0)$ es verdadero.
+        \item \textbf{Inducción:} para todo natural $k > 0$, si $G$ e $I(k)$ son verdaderos antes de la iteración, entonces $I(k + 1)$ es verdadero después de la iteración.
+        \item \textbf{Corrección:} inmediatamente después de terminado el loop (i.e. cuando $G$ es falso), si $k = N$ e $I(N)$ es verdadero, entonces las postcondiciones se cumplen.
+    \end{itemize}
+    
+    Y para \textbf{demostrar terminación}, debemos mostrar que existe un $k$ para el cual $G$ es falso.
+    
+    \subsubsection*{Algoritmos recursivos}
+    En el caso de los algoritmos recursivos, no necesitamos dividir la demostración en corrección parcial y terminación.
+    \begin{itemize}
+        \item Basta con demostrar por inducción la propiedad (corrección) deseada.
+        \item En general, la inducción se realiza sobre el tamaño del input.
+    \end{itemize}
+    
+    \subsubsection*{Notación asintótica}
+    Lo que nos interesa luego de determinar cuando un algoritmo es correcto, es su comportamiento a medida que crece el \textbf{input}, ya que el hecho de que un algoritmo sea correcto no implica que sea útil en la práctica: hay que determinar su tiempo de ejecución. \p
+    
+    Vamos a ocupar funciones de dominio natural $(\mathbb{N})$ y recorrido real positivo $(\mathbb{R}^+)$
+    \begin{itemize}
+        \item El dominio será el tamaño del input de un algoritmo.
+        \item El recorrido será el tiempo necesario para ejecutar el algoritmo.
+    \end{itemize}
+    Sea $f: \mathbb{N} \rightarrow \mathbb{R}^+$, entonces
+    \begin{align*}
+        O(f) = \{ g: \mathbb{N} \rightarrow \mathbb{R}^+ \,&|\, ( \exists c \in \mathbb{R}^+ ) ( \exists n_0 \in \mathbb{N} ) ( \forall n \geq n_0 ): \\
+        &g(n) \leq c \cdot f(n) \}
+    \end{align*}
+    
+    Diremos que $g \in O(f)$ es a lo más de orden $f$ o que es $O(f)$.
+    \begin{align*}
+        \Omega(f) = \{ g: \mathbb{N} \rightarrow \mathbb{R}^+ \,&|\, ( \exists c \in \mathbb{R}^+ ) ( \exists n_0 \in \mathbb{N} ) ( \forall n \geq n_0 ): \\
+        &g(n) \geq c \cdot f(n) \}
+    \end{align*}
+    
+    Diremos que $g \in \Omega(f)$ es al menos de orden $f$ o que es $\Omega(f)$.
+    $$
+    \Theta(f) = O(f) \cap \Omega(f)
+    $$
+    Diremos que $g \in \Theta(f)$ es exactamente de orden $f$ o que es $\Theta(f)$.
+    
+    \subsubsection*{Teorema 21}
+    Si $f(n) = a_k \cdot n^k + a_{k - 1} \cdot n^{k - 1} + \ldots a_2 \cdot n^2 + a_1 \cdot n + a_0$ con $a_i \in \mathbb{R}$ y $a_k > 0$, entonces $f$ es $\Theta(n^k)$.
+    
+    \subsubsection*{Teorema 22}
+    Si $f(n) = \log_a(n)$ con $a > 1$, entonces para todo $b > 1$ se cumple que $f$ es $\Theta(\log_b(n))$.
+    
+    \subsubsection*{Funciones más usadas}
+    Las funciones más usadas para los órdenes de notación asintótica tienen nombres típicos.
+    
+    \begin{table}[H]
+        \begin{tabular}{l|l}
+         Notación & Nombre  \\
+         \hline
+         $\Theta(1)$ & Constante \\
+         $\Theta(\log(n))$ & Logarítmico  \\
+         $\Theta(n)$ & Lineal  \\
+         $\Theta(n \log(n))$ & $n \log(n)$  \\
+         $\Theta(n^2)$ & Cuadrático  \\
+         $\Theta(n^3)$ & Cúbico  \\
+         $\Theta(n^k)$ & Polinomial \\
+         $\Theta(m^k)$ & Exponencial \\
+         $\Theta(n!)$ & Factorial 
+        \end{tabular}
+        \end{table}
+    
+    con $k \geq 0$ y $m \geq 2$.
+    
+    \subsubsection*{Complejidad algoritmos iterativos}
+    Queremos encontrar una función $T(n)$ que modele el tiempo de ejecución de un algoritmo.
+    \begin{itemize}
+        \item Donde $n$ es el tamaño del input.
+        \item No queremos valores exactos de $T$ para cada $n$, sino que una notación asintótica para ella.
+        \item Para encontrar $T$, contamos las instrucciones ejecutadas por el algoritmo.
+        \item A veces contaremos cierto tipo de instrucciones que son relevantes para un algoritmo particular.
+    \end{itemize}
+    
+    Consideremos el siguiente algoritmo de búsqueda de arreglos:
+    $$
+    \text{\textit{BÚSQUEDA}}(A,n,k)
+    $$
+    
+    Donde:
+    \begin{itemize}
+        \item \textbf{Input:} un arreglo de $A = [a_0, \ldots, a_{n-1}]$, un natural $n > 0$ correspondiente al largo del arreglo $A$ y un entero $k$.
+        \item \textbf{Output:} el índice de $k$ en $A$, $-1$ si no está.
+    \end{itemize}
+    
+    \begin{lstlisting}[numbers=left, numbersep=-10pt, mathescape]
+        for $i = 0$ to $n - 1$ do
+            if $a_i$ = $k$ then
+                return $i$
+        return $-1$
+    \end{lstlisting}
+    
+    ¿Qué instrucción(es) contamos?
+    \begin{itemize}
+        \item Deben ser representativas de lo que hace el problema.
+        \item En este caso, por ejemplo 3 y 4 no lo son.
+        \item La instrucción 2 si lo sería, y más específicamente la comparación.
+        \begin{itemize}
+            \item Las comparaciones estan entre las instrucciones que se cuentan típicamente, sobre todo en búsqueda y ordenación.
+        \end{itemize}
+    \end{itemize}
+    
+    ¿Respecto a qué parámetro buscamos la notación asintótica?
+    \begin{itemize}
+        \item En el ejemplo, es natural pensar en el tamaño de arreglo $n$.
+    \end{itemize}
+    
+    \textbf{En conclusión:} queremos encontrar una notación asintótica (ojalá $\Theta$) para la cantidad de veces que se ejecuta la comparación de la línea 2 en función de $n$. Llamaremos a esta cantidad $T(n)$. \p
+    
+    Ahora, ¿$T(n)$ depende solo de $n$?
+    \begin{itemize}
+        \item El contenido del arreglo influye en la ejecución del algoritmo.
+        \item Estimaremos entonces el tiempo para el \textbf{peor caso} (cuando el input hace que el algoritmo se demore la mayor cantidad de tiempo posible) y el \textbf{mejor caso} (lo contrario) para un tamaño de input $n$.
+    \end{itemize}
+    
+    En nuestro ejemplo:
+    \begin{itemize}
+        \item \textbf{Mejor caso:} $a_0 = k$. Aquí la línea 2 se ejecuta una vez, y luego $T(n)$ es $\Theta(1)$.
+        \item \textbf{Peor caso:} $k$ no esta en $A$. La línea 2 se ejecutará tantas veces como elementos en $A$, y entonces $T(n)$ es $\Theta(n)$.
+        \item Diremos entonces que el algoritmo \textit{BÚSQUEDA}$(A,n,k)$ es de \textbf{complejidad} $\Theta(n)$ o lineal en el peor caso y $\Theta(1)$ o constante en el mejor caso.
+    \end{itemize}
+    
+    En general, nos conformaremos con encontrar la complejidad del peor caso.
+    \begin{itemize}
+        \item Es la que más interesa, al decirnos qué tan mal se puede comportar un algoritmo en la práctica.
+    \end{itemize}
+    
+    Además, a veces puede ser difícil encontrar una notación $\Theta$.
+    \begin{itemize}
+        \item Nos basta y es suficiente con una buena estimación $O$, tanto para el mejor y el peor caso.
+        \item Nos da una cota superior para el tiempo de ejecución del algoritmo.
+    \end{itemize}
+    
+    \subsubsection*{Complejidad algoritmos recursivos}
+    En este caso, el principio es el mismo: contar instrucciones.
+    \begin{itemize}
+        \item Buscamos alguna(s) instrucción(es) representativa(s).
+        \item Contamos cuántas veces se ejecuta en cada ejecución del algoritmo.
+    \end{itemize}
+    
+    Tenemos que considerar las llamadas recursivas del algoritmo.
+    \begin{itemize}
+        \item Esto hara que aparezcan fórmulas recursivas que deberemos resolver.
+    \end{itemize}
+    
+    Por ejemplo, podemos encontrar una función $T(n)$ para la cantidad de comparaciones que realiza un algoritmo en el peor caso, en función del tamaño del arreglo. Este tipo de funciones se denomina \textbf{ecuación de recurrencia}.
+    
+    
+    \subsubsection*{Notación asintótica condicional}
+    Sea $P \subseteq \mathbb{N}$. Luego,
+    \begin{align*}
+        O(f \,|\, P) = \{ &g: \mathbb{N} \rightarrow \mathbb{R}^+ \,|\, (\exists c \in \mathbb{R}^+)(\exists n_0 \in \mathbb{N})\\
+        &(\forall n \geq n_0) (n \in P \rightarrow g(n) \leq c \cdot f(n))\}
+    \end{align*}
+    
+    Las notaciones $\Omega(f \,|\,P)$ y $\Theta(f \,|\, P)$ se definen de manera análoga.
+    
+    \subsubsection*{Función asintóticamente no decreciente}
+    Una función $f: \mathbb{N} \rightarrow \mathbb{R}^+$ se denomina así si cumple que
+    $$
+    (\exists n_0 \in \mathbb{N})(\forall n \geq n_0)(f(n) \leq f(n + 1))
+    $$
+    Por ejemplo, las funciones $\log_2(n)$, $n$, $n^k$ y $2^n$ son asíntoticamente no decrecientes.
+    
+    \subsubsection*{Función $b$-armónica}
+    Dado un natural $b > 0$, una función $f: \mathbb{N} \rightarrow \mathbb{R}^+$ se denomina $b$-armónica si $f(b \cdot n) \in O(f)$.
+    
+    \subsubsection*{Teorema 23}
+    Sean $f,g: \mathbb{N} \rightarrow \mathbb{R}^+$, un natural $b > 1$ y
+    $$
+    POTENCIA_b = \{ b^i \,|\, i \in \mathbb{N}\}
+    $$
+    
+    Si $f,g$ son asintóticamente no decrecientes, $g$ es $b$-armónica y $f \in O(g \,|\, POTENCIA_b)$, entonces $f \in O(g)$.
+    
+    \subsubsection*{Teorema 24 (Maestro)}
+    Si $a_1, a_2, b, c, c_0, d \in \mathbb{R}^+$ y $b > 1$, entonces para una recurrencia de la forma
+    $$
+    T(n) = \begin{cases}
+        c_0 &0 \leq n < n_0 \\
+        a_1 \cdot T(\lceil\frac{n}{b}\rceil) + a_2 \cdot T(\lfloor\frac{n}{b}\rfloor) + c \cdot n^d &n \geq n_0
+    \end{cases}
+    $$
+    se cumple que
+    $$
+    T(n) \in \begin{cases}
+        \Theta(n^d) &a_1 + a_2 < b^d \\
+        \Theta(n^d \cdot \log(n)) &a_1 + a_2 = b^d \\
+        \Theta(n^{\log_b(a_1 + a_2)}) &a_1 + a_2 > b^d
+    \end{cases}
+    $$
+    
+    \section{Teoría de grafos}
+    
+    \subsubsection*{Grafo}
+    Un grafo $G = (V,E)$ es un par donde $V$ es un conjunto, cuyos elementos llamaremos \textit{vértices o nodos}, y $E$ es una relación binaria sobre $V$ (es decir, $E \subseteq V \times V$), cuyos elementos llamaremos \textit{aristas}. \p
+    
+    Para representar un grafo, usamos puntos o círculos para dibujar vértices, y flechas para dibujar aristas. Cada arista será una flecha entre los nodos que relaciona. Estos son los llamados \textbf{grafos dirigidos}.
+    
+    \subsubsection*{Rulo (loop)}
+    Es una arista $(x,y) \in E$ tal que $x = y$. Es decir, es una arista que conecta un vértice con sí mismo.
+    
+    \subsubsection*{Aristas paralelas}
+    Dos aristas $(x,y) \in E$  y $(z, w) \in E$ son pararelas si $x = w$ e $y = z$. Es decir, si conectan a los mismos vértices.
+    
+    \subsubsection*{Grafo no dirigido}
+    Un grafo $G = (V, E)$ es no dirigido si toda arista tiene una arista paralela. Alternativamente, $G$ es no dirigido si $E$ es simétrica. En estos grafos se dibuja con trazos en lugar de flechas.
+    
+    \subsubsection*{Grafo simple}
+    Un grafo \textbf{no dirigido} $G = (V, E)$ es simple si no tiene rulos. Alternativamente, $G$ es simple si $E$ es irrefleja.
+    
+    \subsubsection*{Convención sobre grafos}
+    De ahora en adelante (a menos que se explicite otra cosa), cuando hablemos de grafos estaremos refiriéndonos a grafos \textbf{simples}, \textbf{no dirigidos}, \textbf{no vacíos} y \textbf{finitos}.
+    \begin{itemize}
+        \item $V \neq \varnothing$ y $|V| = n$, con $n \in \mathbb{N}$.
+        \item $E$ es simétrica e irrefleja.
+    \end{itemize}
+    
+    \subsubsection*{Vértices adyacentes o vecinos}
+    Dado un grafo $G = (V, E)$, dós vértices $x,y \in V$ son adyacengtes o vecinos si $(x,y) \in E$.
+    
+    \subsubsection*{Isomorfismo}
+    Dos grafos $G_1 = (V_1, E_1)$ y $G_2 = (V_2, E_2)$ son \textbf{isomorfos} si existe una función biyectiva $f: V_1 \rightarrow V_2$ tal que $(x,y) \in E_1$ si y sólo si $(f(x), f(y)) \in E_2$. En tal caso:
+    \begin{itemize}
+        \item Diremos que $f$ es un \textbf{isomorfismo} entre $G_1$ y $G_2$.
+        \item Escribiremos $G_1 \cong G_2$.
+    \end{itemize}
+    
+    \subsubsection*{Teorema 25}
+    La relación de isomorfismo $\cong$ es una relación de equivalencia (es decir, es refleja, simétrica y transitiva).
+    
+    \subsubsection*{Camino (informal)}
+    Un camino es un grafo cuyos vértices pueden dibujarse en una línea tal que dos vértices son adyacentes si y sólo si aparecen consecutivos en la línea.
+    
+    \subsubsection*{Camino (formal)}
+    Considere un grafo $G_n^P = (V_n^P, E_n^P)$, donde 
+    \begin{align*}
+        V_n^P &= \{ v_1, \ldots, v_n \} \\ 
+        E_n^P &= \{ (v_i, v_j) \,|\, i \in \{1,\ldots, n - 1\} \wedge j = i + 1\}
+    \end{align*}
+    
+    Un \textbf{camino} (de $n$ vértices) es un grafo isomorfo a $G_n^P$. \p
+    
+    A la clase de equivalencia $[G_n^P]_{\cong}$ la llamaremos $P_n$: los caminos con $n$ vértices.
+    
+    \subsubsection*{Ciclo (informal)}
+    Un ciclo es un grafo cuyos vértices pueden dibujarse en un círculo tal que dor vértices son adyancentes si y sólo si aparecen consecutivos en él.
+    
+    \subsubsection*{Ciclo (formal)}
+    Considere un grafo $G_n^C = (V_n^C, E_n^C)$, donde 
+    \begin{align*}
+        V_n^C &= \{ v_1, \ldots, v_n \} \\ 
+        E_n^C &= \{ (v_i, v_j) \,|\, i \in \{1,\ldots, n - 1\} \wedge j = i + 1\} \cup \{ (v_n, v_1) \}
+    \end{align*}
+    
+    Un \textbf{ciclo} (de $n$ vértices) es un grafo isomorfo a $G_n^P$. \p
+    
+    A la clase de equivalencia $[G_n^C]_{\cong}$ la llamaremos $C_n$: los ciclos con $n$ vértices.
+    
+    \subsubsection*{Grafo completo}
+    Un grafo completo es un grafo en el que todos los pares de vértices son adyacentes. \p
+    
+    A la clase de equivalencia de los grafos completos de $n$ vértices la llamaremos $K_n$.
+    
+    \subsubsection*{Grafo bipartito}
+    Un grafo $G = (V,E)$ se deice bipartito si $V$ se puede particionar en dos conjuntos no vacíos $V_1$ y $V_2$ tales que para toda arista $(x,y) \in E$, $x \in V_1$ e $y \in V_2$, o $x \in V_2$ e $y \in V_1$. \p
+    
+    Es decir,
+    \begin{itemize}
+        \item $V = V_1 \cup V_2$
+        \item $V_1 \cap V_2 = \varnothing$
+        \item Cada arista une a dos vértices en conjuntos distintos de la partición.
+    \end{itemize}
+    
+    \subsubsection*{Grafo bipartito completo}
+    Un grafo bipartito completo es un grafo bipartito en que cada vértice es adyacente a todos los de la otra partición. \p
+    
+    A la clase de equivalencia de los grafos bipartitos completos la llamaremos $K_{n,m}$, donde $n$ y $m$ son los tamaños de las particiones.
+    
+    \subsubsection*{Subgrafo}
+    Dado un grafo $G = (V_G, E_G)$, un grafo $H = (V_H, E_H)$ es un subgrafo de $G$ (denotado como $H \subseteq G$) si $V_H \subseteq V_G$, $E_H \subseteq E_G$ y $E_H$ sólo contiene aristas entre vértices de $V_H$.
+    
+    \subsubsection*{Clique}
+    Dado un grafo $G = (V_G, E_G)$, un clique en $G$ es un conjunto de vértices $K \subseteq V_G$ tal que
+    $$\forall\,v_1, v_2 \in K.\,(v_1, v_2) \in E_G$$
+    
+    \subsubsection*{Conjunto independiente}
+    Dado un grafo $G = (V_G, E_G)$, un conjunto independiente en $G$ es un conjunto de vértices $K \subseteq V_G$ tal que
+    $$
+    \forall\,u,v \in K.\, (u,v) \notin E_G
+    $$
+    
+    \subsubsection*{Complemento}
+    Dado un grafo $G = (V_G, E_G)$, el complemento de $G$ es el grafo $\overline{G} = (V_G, \overline{E_G})$, donde $(u,v) \in E_G \leftrightarrow (u,v) \notin \overline{E_G}$.
+    
+    \subsubsection*{Grafo autocomplementario}
+    Un grafo $G$ se dice autocomplementario si $G \cong \overline{G}$.
+    
+    \subsubsection*{Teorema 26}
+    Dado un grafo $G = (V,E)$, un conjunto $V' \subseteq V$ es un clique en $G$ si y sólo si es un conjunto independiente en $\overline{G}$.
+    
+    \subsubsection*{Matriz de adyacencia}
+    Dado un grafo $G = (V,E)$, como $E$ es una relación binaria podemos representarla en una matriz, llamada matriz de adyacencia de $G$. \p
+    
+    Por ejemplo, si $V = \{1,2,3,4\}$ y $E = \{ (1,2),$
+    $(1,4), (2,1), (2,3), (2,4), (3,2), (3,4), (4,1), (4,2), (4,3) \}$, entonces
+    $$
+    M_G = \begin{bmatrix}
+        0 & 1 & 0 & 1 \\
+        1 & 0 & 1 & 1 \\
+        0 & 1 & 0 & 1 \\
+        1 & 1 & 1 & 0 
+        \end{bmatrix}
+    $$
+    
+    \begin{itemize}
+        \item Si el grafo es simple, la diagional sólo contiene ceros.
+        \item Si el grafo es no dirigido, entonces $M_G = M_G^T$.
+    \end{itemize}
+    
+    \subsubsection*{Matriz de incidencia}
+    Además de la matriz de adyacencia, podemos usar una matriz de incidencia $A_G$:
+    \begin{itemize}
+        \item Etiquetamos las aristas de $G$.
+        \item Cada fila de la matriz representará un vértice, y cada columna a una arista.
+        \item Cada posición de la matriz tendra un 1 si la arista de la columna \textit{incide} en el vértice de al fila.
+    \end{itemize}
+    
+    Por ejemplo, si $V = \{1,2,3,4\}$ y $E = \{ (1,2),$
+    $(1,4), (2,1), (2,3), (2,4), (3,2), (3,4), (4,1), (4,2), (4,3) \}$, entonces
+    $$
+    A_G = \begin{bmatrix}
+        1 & 1 & 0 & 0 & 0 \\
+        1 & 0 & 1 & 1 & 0\\
+        0 & 0 & 1 & 0 & 1\\
+        0 & 1 & 0 & 1 & 1
+        \end{bmatrix}
+    $$
+    
+    \subsubsection*{Grado de un grafo}
+    Dado un grafo $G$ y un vértice $v$ de él, el grado de $v$ (denotado como $\delta_G(v)$) es la cantidad de aristas que inciden en $v$.
+    
+    \subsubsection*{Vecindad de un grafo}
+    Dado un grafo $G$ y un vértice $v$ de él, la vecindad de $v$ es el conjunto de vecinos de $v$:
+    $$
+    N_G(v) = \{ u \,|\, (v,u) \in E \}
+    $$
+    
+    En un grafo simple, $\delta_G(v) = |N_G(v)|$
+    
+    \subsubsection*{Teorema 27 (Handshaking lemma)}
+    Si $G = (V,E)$ es un grafo sin rulos, entonces
+    $$
+    \sum_{v \in V} \delta_G(v) = 2|E|
+    $$
+    Es decir, la suma de los grafos de los vértices es dos veces la cantidad de aristas.
+    
+    \begin{itemize}
+        \item \textbf{Corolario:} En un grafo sin rulos siempre hay una cantidad par de vértices de grado impar.
+    \end{itemize}
+    
+    \subsubsection*{Caminatas}
+    Una caminata en un grafo $G = (V,E)$ es una secuencia de vértices $(v_0, v_1, v_2, \ldots, v_k)$, con $v_0, \ldots, v_k \in V$, tal que $(v_{i - 1}, v_i) \in E$, con $i$ entre 1 y $k$. \p
+    
+    Una caminata \textbf{cerrada} en un grafo es una caminata que empieza y termina en el mismo vértice: $v_0 = v_k$.
+    
+    \subsubsection*{Caminos y ciclos}
+    Un \textbf{camino} es un grafo es una caminata en la que no se repiten aristas. \p
+    
+    Un \textbf{ciclo} en un grafo es una caminata cerrada en la que no se repiten aristas.
+    
+    \subsubsection*{Largo de una caminata, camino o ciclo}
+    Corresponde a la cantidad de aristas que lo componen. Si está compuesto por un único vértice (sin aristas), diremos que tiene largo 0.
+    
+    \subsubsection*{Vértices conectados}
+    Dos vértices $x$ e $y$ en un grafo $G$ estan conectados si existe un camino en $G$ que empieza en $x$ y termina en $y$. \p
+    
+    \textbf{Nota:} Que dos vértices ``estén conectados'' implica una relación de equivalencia.
+    
+    \subsubsection*{Componente conexa}
+    Dado un vértice $v$ de un grafo $G$, su clase de equivalencia bajo la relación ``estar conectados'' es una componente conexa de $G$. \p
+    
+    En general, diremos que la componente conexa tambien contiene a las aristas entre los vértices de ella.
+    
+    \subsubsection*{Grafo conexo}
+    Un grafo $G$ se dice conexo si todo par de vértices $x,y \in V$ está conectado. En otro caso, $G$ es disconexo. \p
+    
+    En otras palabras, esta definición es equivalente a decir que $G$ tiene sólo una componente conexa.
+    
+    \subsubsection*{Teorema 28}
+    Un grafo $G$ con $n$ vértices y $k$ aristas tiene al menos $n - k$ componentes conexas.
+    \begin{itemize}
+        \item \textbf{Corolario:} Si un grafo $G$ con $n$ vértices es conexo, tiene al menos $n - 1$ aristas.
+    \end{itemize}
+    
+    \subsubsection*{Arista de corte}
+    Una arista de corte en un grafo $G$ es una arista tal que al eliminarla aumenta la cantidad de componentes conexas de $G$.
+    
+    \subsubsection*{Vértice de corte}
+    Un vértice de corte en un grafo $G$ es un vértice tal que al eliminarlo (junto con todas sus aristas incidentes) aumenta la cantidad de componentes conexas de $G$.
+    
+    \subsubsection*{Teorema 29}
+    Una arista en un grafo $G$ es de corte si y sólo si no pertenece a ningún ciclo en $G$.
+    
+    \subsubsection*{Lema 2}
+    En un grafo simple $G$, toda caminata cerrada de largo impar contiene un ciclo de largo impar.
+    
+    \subsubsection*{Teorema 30}
+    Un grafo simple conexo $G$ es bipartito si y sólo si no contiene ningún ciclo de largo impar.
+    
+    \subsubsection*{Multigrafo}
+    Sea $V$ un conjunto de vértices, $E$ un conjunto de aristas y $S \subseteq \mathcal{P}(V)$ tal que
+    $$
+    S = \{ \{u,v\} \,|\, u \in V \wedge v \in V\}
+    $$
+    
+    Un multigrafo $G = (V, E, f)$ es un trío ordenado donde $f: E \rightarrow S$ es una función que asigna un par de vértices a cada arista en $E$.
+    
+    \subsubsection*{Ciclo Euleriano}
+    Un ciclo euleriano en un (multi)grafo $G$ es un ciclo que contiene a todas las aristas y vértices de $G$.
+    \begin{itemize}
+        \item Es un ciclo, por lo tanto no puede repetir aristas.
+        \item Pueden repetirse vértices.
+        \item Iremos que $G$ es un \textbf{grafo Euleriano} si contiene un ciclo Euleriano.
+    \end{itemize}
+    
+    \subsubsection*{Teorema 31}
+    Un (multi)grafo sin rulos es Euleriano si y sólo si es conexo y todos sus vértices tienen grado par.
+    
+    \subsubsection*{Camino Euleriano}
+    Un camino Euleriano en un (multi)grafo $G$ es un camino no cerrado que contiene a todas las aristas y vértices de $G$.
+    
+    \subsubsection*{Teorema 32}
+    Un (multi)grafo tiene un camino Euleriano si y sólo si es conexo y contiene exactamente dos vértices de grado impar.
+    
+    \subsubsection*{Ciclo Hamiltoniano}
+    Un ciclo Hamiltoniano en un grafo $G$ es un ciclo en $G$ que contiene a todos sus vértices una única vez cada uno (excepto por el inicial y el final).
+    \begin{itemize}
+        \item Diremos que $G$ es un \textbf{grafo Hamiltoniano} si contiene un ciclo Hamiltoniano.
+        \item No hay ninguna relación entre grafos Eulerianos y Hamiltonianos.
+    \end{itemize}
+    
+    \subsubsection*{Árbol}
+    Un grafo $T = (V, E)$ es un \textbf{árbol} si para cada par de vértices $x,y \in V$ existe un único camino entre ellos. Por lo tanto, siempre es conexo.
+    
+    \subsubsection*{Bosque}
+    Un grafo $T = (V, E)$ es un \textbf{bosque} si para cada par de vértices $x,y \in V$, si existe un camino entre ellos, este es único. Un bosque es un conjunto de árboles.
+    
+    \subsubsection*{Árboles con raíz}
+    Distinguimos uno de los vértices $r \in V$, al que llamaremos la \textbf{raíz} del árbol. Los vértices de grado menor o igual a 1 se llaman \textbf{hojas}. Los dibujamos con la raíz arriba y los demás vértices hacia abajo.
+    
+    \subsubsection*{Definiciones alternativas de árbol}
+    Hay muchas definiciones equivalentes para los árboles:
+    \begin{enumerate}
+        \item Un grafo $T = (V, E)$ es un \textbf{árbol} si y sólo si es conexo y acíclico.
+        \item Un grafo $T = (V, e)$ es un \textbf{árbol} si y sólo si es conexo y todas sus aristas son de corte.
+    \end{enumerate}
+    
+    \subsubsection*{Teorema 33}
+    Todo árbol es un grafo bipartito.
+    
+    \subsubsection*{Teorema 34}
+    Si $T$ es un árbol y $v$ es una hoja de él, entonces el grafo $T - v$ (el grafo que resulta de quitar el vértice y sus aristas incidentes) es un árbol.
+    
+    \subsubsection*{Otra definición útil de árbol}
+    Un grafo $T = (V, E)$ con $n$ vértices es un \textbf{árbol} si y sólo si es conexo y tiene exactamente $n - 1$ aristas.
+    
+    \subsubsection*{Profundidad, altura, ancestros, padre, hijos y hermanos}
+    Sea $T = (V, E)$ un árbol con raíz $r$ y $x$ un vértice cualquiera.
+    \begin{itemize}
+        \item La \textbf{profundidad} de $x$ es el largo del camino que lo une con $r$ ($r$ tiene profundidad 0).
+        \item La \textbf{altura} o \textbf{profundidad} del árbol es el máximo de las profundidades de sus vértices.
+        \item Los \textbf{ancestros} de $x$ son los vértices que aparecen en el camino entre él y $r$. Note que $x$ es ancestro de sí mismo.
+        \item El \textbf{padre} de $x$ es su ancestro (propio) de mayor profundidad. Diremos que $x$ es \textbf{hijo} de su padre.
+        \item Dos vértices $x$ e $y$ con el mismo padre son \textbf{hermanos}.
+    \end{itemize}
+    
+    \subsubsection*{Árboles binarios}
+    Un árbol con raíz se dice \textbf{binario} si todo vértice tiene grafo a lo más 3; o equivalentemente, si todo vértice tiene a lo más dos hijos. Podemos distinguir entre hijos izquierdos y derechos.
+    
+    \subsubsection*{Teorema 35}
+    La cantidad de vértices sin hijos de un árbol binario es la cantidad de vértices con exactamente dos hijos más 1.
+    
+    \subsubsection*{Árbol binario completo}
+    Un \textbf{árbol binario completo} es un árbol binario tal que:
+    \begin{enumerate}
+        \item Todas las hojas están a la misma profundidad.
+        \item Todos los vértices que no son hojas tienen exactamente dos hijos.
+    \end{enumerate}
+    
+    \subsubsection*{Teorema 36}
+    \begin{enumerate}
+        \item Un árbol binario completo de altura $H$ tiene exactamente $2^H$ hojas.
+        \item Un árbol binario completo de altura $H$ tiene exactamente $2^{H + 1} - 1$ vértices.
+        \item Si $H$ es la altura de un árbol binario completo con $n$ vértices, entonces $H \leq \log_2(n)$.
+    \end{enumerate}
+    
+    \section{Teoría de números}
+    \subsubsection*{Recordando la relación $|$}
+    La relación \textit{divide a}, denotada por $|$, sobre los enteros sin el 0, es una relación tal que $a$ está relacionado con $b$ si y sólo $b$ es múltiplo de $a$:
+    $$
+    a|b \text{ si y sólo si } \exists k \in \mathbb{Z} \text{ tal que } b = ka
+    $$
+    
+    \subsubsection*{Recordando la relación $\equiv_n$}
+    La relación \textit{equivalencia módulo} $n$, denotada por $\equiv_n$, sobre los enteros, es una relación tal que $a$ está relacionado con $b$ si y sólo si $n|(b - a)$:
+    \begin{align*}
+        &a \equiv_n b \text{ si y sólo si } n|(b - a) \\
+        a \equiv_n b &\text{ si y sólo si } \exists k \in \mathbb{Z} \text{ tal que } (b - a) = kn
+    \end{align*}
+    \begin{itemize}
+        \item La relación $\equiv_n$ es una relación de equivalencia.
+        \item Podemos tomar el conjunto cuociente generado por ella sobre $\mathbb{Z}$.
+        \item Usando las clases de equivalencia, definimos la suma y la multiplicación.
+    \end{itemize}
+    
+    \subsubsection*{Suma y multiplicación}
+    Dado $n \in \mathbb{N}, n > 0$, definimos 
+    $$
+    \mathbb{Z}_n = \mathbb{Z} / \equiv_n
+    $$
+    y sus operaciones
+    \begin{align*}
+        [i] + [j] &= [i + j] \\
+        [i] \cdot [j] &= [i \cdot j]
+    \end{align*}
+    
+    \subsubsection*{Operación módulo $n$}
+    La operación \textbf{módulo} $n$ entrega el resto de la división por $n$. Se escribe $a$ mod $n$ o $a \% n$. \p
+    
+    Con esta operación podemos redefinir la suma y multiplicación en $\mathbb{Z}_n$:
+    \begin{align*}
+        [i] + [j] &= (i + j) \text{ mod } n\\
+        [i] \cdot [j] &= (i \cdot j) \text{ mod } n
+    \end{align*}
+    \begin{itemize}
+        \item Una observación importante es que siempre se cumple que
+        $$
+        0 \leq a \text{ mod } n < n
+        $$
+    \end{itemize}
+    
+    \subsubsection*{Teorema 37}
+    $a \equiv_n b$ si y sólo si $a \text{ mod } n = b \text{ mod } n$.
+    \begin{itemize}
+        \item \textbf{Corolario:} $a \equiv_n a \text{ mod } n$.
+    \end{itemize}
+    
+    \subsubsection*{Teorema 38}
+    Si $a \equiv_n b$ y $c \equiv_n d$, entonces
+    \begin{align*}
+        (a + c) &\equiv_n (b + d) \\
+        (a \cdot c) &\equiv_n (b \cdot d)
+    \end{align*}
+    \begin{itemize}
+        \item \textbf{Corolario:}
+        \begin{align*}
+            (a + b) \text{ mod } n &= ((a \text{ mod } n) + b \text{ mod } n) \text{ mod } n \\
+            a \cdot b \text{ mod } n &= ((a \text{ mod } n)(b \text{ mod } n)) \text{ mod } n \\
+        \end{align*}
+    \end{itemize}
+    
+    \subsubsection*{Teorema 39 (Fermat)}
+    Si $p$ es un numero primo, para cualquier entero $a$ se cumple que $a^p \equiv_p a$.
+    \begin{itemize}
+        \item \textbf{Corolario:} Si $p$ es un número primo y $a$ es un entero que no es múltiplo de $p$, entonces $a^{p - 1} \equiv_p 1$.
+    \end{itemize}
+    
+    \subsubsection*{Máximo común divisor (informal)}
+    Dados dos números $a$ y $b$, su máximo común divisor, denotado como $MCD(a,b)$, es el máximo natural $n$ tal que $n|a$ y $n|b$.
+    
+    \subsubsection*{Teorema 40}
+    Si $b > 0$, entonces $MCD(a,b) = MCD(b, a \text{ mod } b)$.
+    $$
+    MCD(a,b) = \begin{cases}
+    a &b = 0 \\
+    MCD(b, a \text{ mod } b) &b > 0
+    \end{cases}
+    $$
+    
+    \subsubsection*{Calculando enteros con $MCD$}
+    Con el algoritmo (ecuación) anterior, se puede calcular $s,t \in \mathbb{Z}$ sabiendo que
+    $$
+    MCD(a,b) = s \cdot a + t \cdot b
+    $$ 
+    
+    \subsubsection*{Algoritmo extendido del $MCD$}
+    Sea $a \geq b$.
+    \begin{enumerate}
+        \item Definimos una sucesión $\{ r_i \}$ como:
+        $$
+        r_0 = a, \, r_1 = b, \, r_{i + 1} = r_{i - 1} \text{ mod } r_i
+        $$
+        
+        \item Definimos sucesiones $\{s_i\}, \{t_i\}$ tales que:
+        \begin{align*}
+            s_0 &= 1,\,t_0 = 0 \\
+            s_1 &= 0, \, t_1 = 1 \\
+            r_i &= s_i \cdot a + t_i \cdot b
+        \end{align*}
+        
+        \item Calculamos estas sucesiones hasta un $k$ tal que $r_k = 0$.
+        \item Entonces, $MCD(a,b) = r_{k - 1} = s_{k - 1} \cdot a + t_{k - 1} \cdot b$.
+    \end{enumerate}
+    
+    \subsubsection*{Algoritmo extendido del $MCD$ (alternativa)}
+    Sea $a \geq b$.
+    \begin{enumerate}
+        \item Definimos una sucesión $\{ r_i \}$ como:
+        $$
+        r_0 = a, \, r_1 = b, \, r_{i + 1} = r_{i - 1} \text{ mod } r_i
+        $$
+        
+        \item Definimos sucesiones $\{s_i\}, \{t_i\}$ tales que:
+        \begin{align*}
+            s_0 &= 1,\,t_0 = 0 \\
+            s_1 &= 0, \, t_1 = 1 \\
+            s_{i + 1} = s_{i - 1} - \left\lfloor \dfrac{r_{i-1}}{r_i} \right\rfloor &\cdot s_i,\; t_{i + 1} = t_{i - 1} - \left\lfloor \dfrac{r_{i-1}}{r_i} \right\rfloor \cdot t_i
+        \end{align*}
+        
+        \item Calculamos estas sucesiones hasta un $k$ tal que $r_k = 0$.
+        \item Entonces, $MCD(a,b) = r_{k - 1} = s_{k - 1} \cdot a + t_{k - 1} \cdot b$.
+    \end{enumerate}
+    
+    \subsubsection*{Inverso}
+    $b$ es inverso de $a$ en módulo $n$ si $a \cdot b \equiv_n 1$. Se puede denotar como $a^{-1}$. Ojo: no es lo mismo que $\frac{1}{a}$.
+    
+    \subsubsection*{Teorema 41}
+    $a$ tiene inverso en módulo $n$ si y sólo si $MCD(a,n) = 1$. Si se cumple esto, diremos que $a$ y $n$ son \textbf{primos relativos} o \textbf{coprimos}.
+    
+    \subsubsection*{Método para calcular el inverso}
+    La demostración del teorema 41 nos da un método para calcular el inverso:
+    \begin{itemize}
+        \item Usamos el algoritmo extendido del máximo común divisor para encontrar $s$ y $t$ tales que $1 = s \cdot a + t \cdot n$.
+        \item $s$ será el inverso de $a$ en módulo $n$.
+    \end{itemize}
+    
+    Dados $a,b,n \in \mathbb{Z}$, si $a \equiv_n b$ tambien podemos escribir:
+    $$
+    a \equiv b \text{ (mod } n)
+    $$
+    Esta es la notación más usada en la literatura.
+    
+    \subsubsection*{Congruencia lineal}
+    Una congruencia lineal es una ecuación de la forma
+    $$
+    ax \equiv b \text{ (mod } n)
+    $$
+    donde $n \in \mathbb{N} - \{0\}$, $a,b \in \mathbb{Z}$ y $x$ es una variable.
+    
+    \subsubsection*{Corolario teorema 41}
+    Si $a$ y $n$ son primos relativos, entonces $ax \equiv b \text{ (mod } n)$ tiene  solución en $\mathbb{Z}_n$.
+    
+    \subsubsection*{Teorema 42 (Chino del Resto)}
+    Sean $m_1, m_2, \ldots, m_n$ con $m_i > 1$ tal que $m_i,m_j$ son primos relativos con $i \neq j$. Para $a_1, a_2, \ldots, a_n \in \mathbb{Z}$, el sistema de ecuaciones:
+    \begin{align*}
+        x &\equiv a_1 \text{ (mod } m_1) \\
+        x &\equiv a_2 \text{ (mod } m_2) \\
+        &\vdots \\
+        x &\equiv a_n \text{ (mod } m_n)
+    \end{align*}
+    tiene una única solución en $\mathbb{Z}_m$ con $m = \displaystyle{\prod_{i=1}^n m_i}$
+    
+    \subsubsection*{Lema 3}
+    Sean $m_1,m_2 > 1$ coprimos y $u,v \in \mathbb{Z}$. Si $u \equiv v \text{ (mod } m_1)$ y $u \equiv v \text{ (mod } m_2)$, entonces 
+    $$u \equiv v \text{ (mod } m_1 \cdot m_2)$$
+    
+    Este lema se puede generalizar para $n$ coprimos.
+    
+    \section{Complejidad computacional}
+    \subsubsection*{Problemas de decisión (informal)}
+    Son los problemas para los cuales sus respuestas posibles son SI o NO.
+    
+    \subsubsection*{Problemas de decisión (formal)}
+    Un problema de decisión $\pi$ se compone de un conjunto de instancias $I_\pi$ y un lenguaje $L_\pi \subseteq I_\pi$, y se define como
+    $$
+    \text{Dado un elemento } w \in I_\pi, \text{ determinar si } w \in L_\pi
+    $$
+    Ejemplos:
+    \begin{itemize}
+        \item PRIMO:
+        \begin{itemize}
+            \item $I_{\text{PRIMO}} = \mathbb{N}$.
+            \item $L_{\text{PRIMO}} = \{ p \in \mathbb{N} \,|\, p \text{ es primo}\}$
+        \end{itemize}
+        \item EULERIANO:
+        \begin{itemize}
+            \item $I_{\text{EULERIANO}} = \{ G \,|\, G \text{ es un grafo} \}$
+            \item $L_{\text{EULERIANO}} = \{ G \,|\, G \text{ es un grafo con ciclo euleariano} \}$
+        \end{itemize}
+        \item SAT:
+        \begin{itemize}
+            \item $I_{\text{SAT}} = L(P)$
+            \item $L_{\text{SAT}} = \{ \alpha \in L(P) \,|\, \alpha \text{ es satisfacible} \}$
+        \end{itemize}
+    \end{itemize}
+    
+    Un algoritmo $A$ resuelve un problema de decisión $\pi$ si para cada input $w \in I_\pi$, el algoritmo $A$ responde SI cuando $w \in L_\pi$, y responde NO cuando $w \in I_\pi - L_\pi$ (en este caso diremos que $w \notin L_\pi$).
+    
+    \subsubsection*{Clase de complejidad DTIME}
+    La clase de complejidad \textbf{DTIME}$(T(n))$ es el conjunto de problemas para los cuales existe un algoritmo que lo resuelve de complejidad $O(T(n))$, donde $n$ es el tamaño del input: \p
+    
+    DTIME$(T(n)) = \{ \pi \,|\, \pi$ es un problema de decisión para el cual existe un algoritmo $A$ que lo resuelve y que para todo $w \in I_\pi$ corre en $O(T(|w|))\}$. \p
+    
+    Los ejemplos anteriores pertenecen a las clases de complejidad:
+    \begin{itemize}
+        \item PRIMO $\in$ DTIME$(10^n)$
+        \item EULERIANO $\in$ DTIME$(n^2)$
+        \item SAT $\in$ DTIME$(2^n)$
+    \end{itemize}
+    
+    \subsubsection*{Clase de complejidad PTIME}
+    
+    La clase de complejidad \textbf{PTIME} o simplemente P se define como
+    $$
+    \text{P} = \bigcup_{k = 0}^\infty \text{DTIME}(n^k)
+    $$
+    La clase PTIME contiene a todos los problemas que pueden resolverse en tiempo polinomial. En general diremos que estos problemas son \textit{tratables}. Por ejemplo, EULERIANO $\in$ P.
+    
+    \subsubsection*{Clase de complejidad NP}
+    Como definición informal, la clase de complejidad NP contiene a todos los problemas de decisión para los cuales es posible verificar una solución al problema de forma eficiente. Sin embargo, no necesariamente encontrar la solución es fácil. \p
+    
+    En una vía más formal, la clase de complejidad NP contiene a todos los problemas de decisión $\pi$ para los cuales se cumple lo siguiente: \p
+    
+    Si $w \in L_\pi$, entonces existe un \textit{certificado} $c(w)$, de tamaño polinomial respecto a $w$, tal que existe un algoritmo que usando $c(w)$ puede determinar en tiempo polinomial si $w \in L_\pi$.
+    
+    \subsubsection*{Teorema 43}
+    P $\subseteq$ NP. Este teorema nos permite establecer una primera cota para las clases P y NP.
+    
+    \subsubsection*{Reducciones polinomiales}
+    Dados dos problemas de decisión $\pi = (I_\pi, L_\pi)$ y $\pi' = (I_{\pi'}, L_{\pi'})$, diremos que $\pi'$ \textit{se reduce desde} $\pi$ si dada una instancia $w \in I_\pi$ existe una función $A: I_\pi \rightarrow I_{\pi'}$ polinomial en $|w|$ tal que
+    $$
+    w \in L_\pi \leftrightarrow A(w) \in L_{\pi'}
+    $$
+    En este caso diremos que $\pi'$ es \textbf{por lo menos tan difícil} como $\pi$ y lo denotaremos como $\pi \propto \pi'$.
+    
+    \subsubsection*{Fórmula en 3-CNF}
+    Decimos que una fórmula $\alpha$ está en 3-CNF si es una conjunción de cláusulas de exactamente 3 literales cada una.
+    \begin{itemize}
+        \item En general aplicamos la restricción de 3 literales al conjunto que representa a cada cláusula.
+        \item Por lo tanto, no pueden repetirse literales en la misma cláusula.
+    \end{itemize}
+    
+    \subsubsection*{SAT-3CNF}
+    Definimos SAT-3CNF como
+    \begin{align*}
+        I_{\text{SAT-3CNF}} &= \alpha \in L(P) \text{ en 3-CNF} \\
+        L_{\text{SAT-3CNF}} = \{ \alpha \in L(&P) \text{ en 3-CNF} \,|\, \alpha \text{ es satisfacible} \}
+    \end{align*}
+    
+    En este caso, diremos que SAT-3CNF es \textbf{por lo menos tan difícil} como SAT-3CNF.
+    
+    \subsubsection*{Teorema 44}
+    $\propto$ es un preorden (refleja y transitiva).
+    
+    \subsubsection*{NP-hard}
+    El hecho de que $\propto$ sea un preorden nos permite establecer una jerarquía en cuanto a la dificultad de los problemas. \p
+    
+    Sea $\pi$ un problema de decisión. Diremos que $\pi$ es NP-hard si para todo $\pi' \in NP$ se tiene que $\pi' \propto \pi$. \p
+    
+    En otras palabras, los problemas NP-hard son por lo menos tan difíciles como todos los problemas en NP.
+    
+    \subsubsection*{NP-completo}
+    El único problema con la definición de NP-hard es que no nos dice nada sobre las cotas superiores de los problemas. La siguiente definición logra capturar la verdadera complejidad de la clase NP: \p
+    
+    Sea $\pi$ un problema de decisión. Diremos que $\pi$ es NP-completo si:
+    \begin{itemize}
+        \item $\pi \in$ NP.
+        \item $\pi \in$ NP-hard.
+    \end{itemize}
+    Dado que cualquier problema en NP se puede reducir a uno NP-completo, podemos concluir que los problemas NP-completos son los más difíciles de la clase NP.
+    
+    \subsubsection*{Teorema 45 (de Cook)}
+    SAT-CNF es NP-completo.
+    
+    \subsubsection*{Problema de decisión: Clique}
+    \begin{align*}
+        I_{\text{CLIQUE}} &= \text{Todos los grafos no dirigidos.} \\
+        L_{\text{CLIQUE}} = \{ (G, k) \,|\, &G \text{ tiene un clique de tamaño } k \wedge k > 2 \}
+    \end{align*}
+    
+    CLIQUE es NP-completo.
+    
+    
+    \end{multicols}
+    \end{document}

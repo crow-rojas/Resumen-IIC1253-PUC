@@ -1,0 +1,142 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[letterpaper]{article}
+\usepackage[spanish]{babel}\decimalpoint
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{color}
+\usepackage[margin=1in,left=0.75in, right=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{commath}
+\usepackage{relsize}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{floatrow}
+\usepackage{wrapfig}
+\usepackage[labelfont=bf]{caption}
+\usepackage{mathtools}
+\usepackage{pgfplots}
+\usepackage{multicol}
+\usepackage[misc]{ifsym}
+\usepackage{tabularx}
+\usepackage{empheq}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\usepackage{polynom}
+\usepackage{microtype}
+\usepackage{listings}
+\usepackage{lastpage}
+
+\pgfplotsset{compat=1.18}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\scshape P. Universidad Católica de Chile}
+\rhead{\scshape Dpto. de Ciencia de la Computación}
+\lfoot{\textbf{IIC1253}}
+\cfoot{\textbf{Matemáticas Discretas}}
+\rfoot{\textbf{Página: \thepage\ de \pageref{LastPage}}}
+
+\setlength\parindent{0pt}
+\setlist[itemize]{leftmargin=*}
+\setlist[enumerate]{leftmargin=*}
+\setlength\parindent{0pt}
+\setlength\columnsep{30pt}
+\renewcommand{\labelitemi}{{\raisebox{.3\height}{\scalebox{0.6}{$\blacklozenge$}}}}
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0.1pt}
+\newcommand{\p}{\vspace{0pt}}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
+
+    \center % Centre everything on the page
+
+    %------------------------------------------------
+    %	Headings
+    %------------------------------------------------
+
+    \textsc{\LARGE Pontificia Universidad Católica de Chile}\\[1.5cm] % Main heading such as the name of your university/college
+
+    \textsc{\Large Departamento de Ciencia de la Computación}\\[0.5cm] % Major heading such as course name
+
+    \textsc{\large Matemáticas Discretas}\\[0.5cm] % Minor heading such as course title
+
+    %------------------------------------------------
+    %	Title
+    %------------------------------------------------
+
+    \HRule\\[0.4cm]
+
+    {\huge\bfseries Resumen}\\[0.4cm] % Title of your document
+
+    \HRule\\[1.5cm]
+
+    %------------------------------------------------
+    %	Author(s)
+    %------------------------------------------------
+
+    \begin{minipage}{0.4\textwidth}
+    	\begin{flushleft}
+    		\large
+    		\textit{Autor}\\
+    		Cristóbal \textsc{Rojas} % Your name
+    	\end{flushleft}
+    \end{minipage}
+    ~
+    \begin{minipage}{0.4\textwidth}
+    	\begin{flushright}
+    		\large
+    		\textit{Basado en apuntes de}\\
+    		Fernando \textsc{Suárez} \\
+    		Marco \textsc{Bucchi} \\
+            Gabriel \textsc{Diéguez}
+    	\end{flushright}
+    \end{minipage}
+
+    % If you don't want a supervisor, uncomment the two lines below and comment the code above
+    % {\large\textit{Autor}}\\
+    % Cristóbal \textsc{Rojas} % Your name
+
+    %------------------------------------------------
+    %	Date
+    %------------------------------------------------
+
+    \vfill\vfill\vfill % Position the date 3/4 down the remaining page
+
+    {\large\today} % Date, change the \today to a set date if you want to be precise
+
+    %------------------------------------------------
+    %	Logo
+    %------------------------------------------------
+
+    \vfill\vfill
+    \includegraphics[width=0.3\textwidth]{img/logo.png}\\[1cm] % Include a department/university logo - this will require the graphicx package
+
+    %----------------------------------------------------------------------------------------
+
+    \vfill % Push the date up 1/4 of the remaining page
+
+\end{titlepage}
+
+\include{materia.tex}
+
+\end{document}
