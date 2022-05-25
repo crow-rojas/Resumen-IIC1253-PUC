@@ -1,7 +1,6 @@
 # Resumen Matemáticas Discretas (IIC1253) PUC
 
-*Hecho por*: Cristóbal Rojas
-*Correo*: carojas37@uc.cl
+*Hecho por*: Cristóbal Rojas | *Correo*: carojas37@uc.cl
 
 Resumen público para el ramo Matemáticas Discretas de la PUC.
 
