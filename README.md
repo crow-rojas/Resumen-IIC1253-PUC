@@ -2,7 +2,7 @@
 
 *Hecho por*: Cristóbal Rojas | *Correo*: carojas37@uc.cl
 
-Resumen público para el ramo Matemáticas Discretas de la PUC.
+Resumen público para el ramo Matemáticas Discretas de la PUC. Puedes **encontrar el PDF** en la carpeta `build`.
 
 Este documento fue escrito por primera vez el 2021-2, en base a los apuntes de los profesores:
 - Fernando Suárez
